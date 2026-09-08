@@ -1,138 +1,70 @@
-<div align="center">   
+<div align="center">
 
-# DriveDreamer-2: LLM-Enhanced World Models for Diverse Driving Video Generation
-</div>
-
-Our team is actively working towards releasing the code for this project. 
-
-We appreciate your patience and understanding as we navigate the necessary processes.
-
-Our new works, [DriveDreamer4D](https://drivedreamer4d.github.io/) and [ReconDreamer](https://recondreamer.github.io/), are released!
- 
-## [Project Page](https://drivedreamer2.github.io) | [Paper](https://arxiv.org/pdf/2403.06845.pdf)
-
-# Abstract 
-
-World models have demonstrated superiority in autonomous driving, particularly in the generation of multi-view driving videos. However, significant challenges still exist in generating customized driving videos. In this paper, we propose DriveDreamer-2, which builds upon the framework of DriveDreamer and incorporates a Large Language Model (LLM) to generate user-defined driving videos. Specifically, an LLM interface is initially incorporated to convert a user's query into agent trajectories. Subsequently, a HDMap, adhering to traffic regulations, is generated based on the trajectories. Ultimately, we propose the  Unified Multi-View Model to enhance temporal and spatial coherence in the generated driving videos. DriveDreamer-2 is the first world model to generate customized driving videos, it can generate uncommon driving videos (e.g., vehicles abruptly cut in) in a user-friendly manner. Besides, experimental results demonstrate that the generated videos enhance the training of driving perception methods (e.g., 3D detection and tracking). Furthermore, video generation quality of DriveDreamer-2 surpasses other state-of-the-art methods, showcasing FID and FVD scores of 11.2 and 55.7, representing relative improvements of 30% and 50%.
-
-<img width="919" alt="abs" src="https://github.com/f1yfisher/DriveDreamer2/assets/39218234/e23cf401-5943-4fb3-b0ed-7d183a9df5cd">
-
-<img width="1327" alt="abs2" src="https://github.com/f1yfisher/DriveDreamer2/assets/39218234/edc11963-0443-4e3f-8309-8955330b4815">
-
-
-# News
-- **[2024/12/18]** 🚀 Inference code and model weight for video generation are realsed!
-- **[2024/12/10]** 🎉 DriveDreamer-2 is accepted for AAAI'25!.
-- **[2024/03/11]** 🚀 We release the [DriveDreamer-2](https://drivedreamer2.github.io/) project! (Key features: multi-view video generation, user-friendly with LLM)
-
-# Getting Started
-
-Download model weights and preprocessing file [HERE](https://pan.baidu.com/s/1EPWcO_sCvlgqVFgNiDGk8w?pwd=dkjq).
-
-- [Installation](DOCS/install.md) 
-
-- [Prepare Dataset & Env](DOCS/preparation.md)
-
-- [Train, Test, Visualization](DOCS/trainval.md)
-
-
-# Demo
-## Results with Gnerated Structural Information
-**Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car.**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/0df78173-9dcd-42f4-8cf8-f7e16b724f82
+# DriveLoop: Evaluation-Driven Closed-Loop Driving-Video Generation
 
 </div>
 
-**Rainy day, car abruptly cutting in from the left rear of ego-car. (long video)**
+DriveLoop wraps a **frozen** [DriveDreamer-2](https://drivedreamer2.github.io) (DD2) backend in a closed loop of **generation, evaluation, diagnosis, and refinement**. Each attempt is rendered on a real nuScenes source scene and scored by a perception-oriented evaluator (YOLOv8 + BoT-SORT). Failed attempts descend a refinement ladder: strengthen structured conditions and refine the prompt text (Rung 1), inject a synthetic close-range trajectory of the requested category (Rung 2), and reseed (Rung 3). Keep-best selection guarantees the returned video is never worse than the single pass. The backend weights are never updated.
 
-<div align="center">   
+## Key results
 
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/779fa0ad-595a-47f3-a52c-1c98c30fa640
+- Mean perception score on seven backend arms: **0.208 → 0.533** (+156% over single-pass DD2), 32/35 requests improve, 0 regress.
+- At the same 4-attempt budget, DriveLoop beats best-of-4 resampling by **73%** (0.533 vs 0.308).
+- Realism improves alongside accuracy: FID 166.4 → 156.7, FVD 2103 → 1752 against real nuScenes clips.
+- A rainy truck cut-in request that every baseline fails (score 0) reaches full gate acceptance (0.696, direction correct).
+- One NVIDIA A10 (24 GB), fp16, about 3 minutes per attempt, at most about 12 minutes per request at T=4.
 
-</div>
+## Repository layout
 
-**Daytime, the ego-car changes lanes to the right side. (long video)**
+| Path | Contents |
+| --- | --- |
+| `driveloop/` | Core package: grounding, conditioning, source selection, DD2 backend adapter, evaluators, refiner, runner |
+| `scripts/` | Experiment entry points (see below) |
+| `scripts/audits/` | One-off diagnostic and audit tools used during development |
+| `tests/` | Unit and integration tests (`pytest tests/`) |
+| `experiments/` | Dated experiment records for every reported result |
+| `results/` | Paper data: per-attempt scores (`driveloop_plotdata.json`), metric curves (`measurement_curves.json`) |
+| `dreamer-datasets/`, `dreamer-models/`, `dreamer-train/` | Upstream DD2 runtime (frozen, unmodified weights) |
+| `DOCS/` | DD2 environment setup: `install.md`, `preparation.md`, `trainval.md` |
 
-<div align="center">   
+## Setup
 
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/36c0f9e6-b9d1-4bd1-ab5c-f2c28eb3294c
+1. Follow `DOCS/install.md` and `DOCS/preparation.md` to set up the DD2 runtime, released DD2 weights, and nuScenes v1.0-trainval.
+2. Python environment: PyTorch with CUDA, `ultralytics` (YOLOv8), and the DD2 dependencies. Local paths are configured in `ENV.py`.
 
-</div>
+## Running
 
-**Rainy day, a person crosses the road in the front of the ego-car. (long video)**
+Single request through the full closed loop:
 
-<div align="center">   
-
-
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/92f8cd31-a1b3-4516-ad03-331cf1ba4acb
-
-
-
-</div>
-
-## Results with nuScenes Structural Information
-
-**Daytime / rainy day / at night, ego-car drives through urban street, surrounded by a flow of vehicles on both sides.**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/543656a4-729d-4b2c-b12d-6e75b3068669
-
-</div>
-
-**Daytime / rainy day / at night, a bus is positioned to the left front of the ego-car, with a pedestrian near the bus.**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/e43193ec-fb91-49ee-818c-b7a2c1a00909
-
-</div>
-
-**Rainy day, the windshield wipers of the truck are continuously clearing the windshield.**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/d05c2ab9-5c41-4dd3-bbd2-7a69b049b891
-
-</div>
-
-**Rainy day, the ego-car makes a left turn at the traffic signal, with vehicles behind proceeding straight through the intersection. (long video)**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/a766b12b-05a3-4755-858e-040c8bbf6ece
-
-</div>
-
-**Daytime, the ego-car drives straight through the traffic light, with a truck situated to the left front and pedestrians crossing on the right side. (long video)**
-
-<div align="center">   
-
-https://github.com/f1yfisher/DriveDreamer2/assets/39218234/e5f713dc-665f-49e2-8f70-3c5de101ffb4
-
-</div>
-
-
-
-# DriveDreamer-2 Framework
-
-<img width="1277" alt="method" src="https://github.com/f1yfisher/DriveDreamer2/assets/39218234/bbb8d658-793a-4b3c-b873-ea5332f7ec4b">
-
-
-
-# Bibtex
-If this work is helpful for your research, please consider citing the following BibTeX entry.
-
-```
-@article{zhao2024drive,
-  title={DriveDreamer-2: LLM-Enhanced World Models for Diverse Driving Video Generation},
-  author={Zhao, Guosheng and Wang, Xiaofeng and Zhu, Zheng and Chen, Xinze and Huang, Guan and Bao, Xiaoyi and Wang, Xingang},
-  journal={arXiv preprint arXiv:2403.06845},
-  year={2024}
-}
+```bash
+python scripts/run_driveloop_drivedreamer2.py
 ```
 
+Reproducing the paper experiments (T=4, seed bank 0):
+
+```bash
+python scripts/run_seven_arms_v10f.py      # backend-arm study (7 arms x 5 requests)
+python scripts/run_pool_v10f.py            # object x condition pool (10 bindings)
+python scripts/run_family_comparison.py    # strategy comparison on the motorcycle family
+python scripts/run_baseline_comparison.py  # open-loop / best-of-4 / text-only baselines
+python scripts/run_fid.py                  # frame-wise FID vs real nuScenes clips
+python scripts/run_fvd.py                  # FVD vs real nuScenes clips
+python scripts/quality_gate.py             # joint acceptance gate readout
+python scripts/summarize_closed_loop.py    # aggregate tables
+```
+
+All runs are deterministic under the fixed seed bank. Every number reported in the paper has a matching record in `experiments/`.
+
+## Tests
+
+```bash
+pytest tests/
+```
+
+## Acknowledgements
+
+The generation backend is [DriveDreamer-2](https://github.com/f1yfisher/DriveDreamer2) (AAAI 2025). We use the officially released weights and runtime without modification. Source scenes come from the [nuScenes](https://www.nuscenes.org) dataset.
+
+## License
+
+Apache-2.0 (see `LICENSE`).
