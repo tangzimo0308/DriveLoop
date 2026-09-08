@@ -1,0 +1,408 @@
+{
+ "budget": {
+  "open": {
+   "T1": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T2": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T3": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T4": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   }
+  },
+  "bo4": {
+   "T1": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T2": {
+    "n": 41,
+    "sperc": 0.2374,
+    "fvd": 2060.9,
+    "fid": 161.4,
+    "minutes": 6.0
+   },
+   "T3": {
+    "n": 41,
+    "sperc": 0.2688,
+    "fvd": 1976.6,
+    "fid": 157.7,
+    "minutes": 9.0
+   },
+   "T4": {
+    "n": 41,
+    "sperc": 0.2901,
+    "fvd": 1991.2,
+    "fid": 158.4,
+    "minutes": 12.0
+   }
+  },
+  "text": {
+   "T1": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T2": {
+    "n": 41,
+    "sperc": 0.2282,
+    "fvd": 1979.0,
+    "fid": 159.8,
+    "minutes": 6.0
+   },
+   "T3": {
+    "n": 41,
+    "sperc": 0.2342,
+    "fvd": 1952.7,
+    "fid": 158.4,
+    "minutes": 9.0
+   },
+   "T4": {
+    "n": 41,
+    "sperc": 0.2541,
+    "fvd": 1947.3,
+    "fid": 156.9,
+    "minutes": 12.0
+   }
+  },
+  "ours": {
+   "T1": {
+    "n": 41,
+    "sperc": 0.1968,
+    "fvd": 2103.5,
+    "fid": 166.4,
+    "minutes": 3.0
+   },
+   "T2": {
+    "n": 41,
+    "sperc": 0.2389,
+    "fvd": 2042.4,
+    "fid": 160.3,
+    "minutes": 6.0
+   },
+   "T3": {
+    "n": 41,
+    "sperc": 0.4452,
+    "fvd": 1686.5,
+    "fid": 156.5,
+    "minutes": 9.0
+   },
+   "T4": {
+    "n": 41,
+    "sperc": 0.4995,
+    "fvd": 1751.8,
+    "fid": 156.7,
+    "minutes": 12.0
+   }
+  }
+ },
+ "arms": {
+  "open": {
+   "c162_official": {
+    "sperc": 0.4143,
+    "fid": 255.5,
+    "minutes": 3.0
+   },
+   "c162_ft6322_dims": {
+    "sperc": 0.2805,
+    "fid": 254.1,
+    "minutes": 3.0
+   },
+   "c2216_official": {
+    "sperc": 0.0812,
+    "fid": 201.0,
+    "minutes": 3.0
+   },
+   "c2216_ft6322_dims": {
+    "sperc": 0.1058,
+    "fid": 207.5,
+    "minutes": 3.0
+   },
+   "c70_official": {
+    "sperc": 0.101,
+    "fid": 322.2,
+    "minutes": 3.0
+   },
+   "c70_ft6322": {
+    "sperc": 0.1523,
+    "fid": 324.0,
+    "minutes": 3.0
+   },
+   "c70_official_dims1p5": {
+    "sperc": 0.3175,
+    "fid": 312.1,
+    "minutes": 3.0
+   }
+  },
+  "bo4": {
+   "c162_official": {
+    "sperc": 0.4361,
+    "fid": 245.8,
+    "minutes": 12.0
+   },
+   "c162_ft6322_dims": {
+    "sperc": 0.3594,
+    "fid": 242.8,
+    "minutes": 12.0
+   },
+   "c2216_official": {
+    "sperc": 0.2237,
+    "fid": 195.5,
+    "minutes": 12.0
+   },
+   "c2216_ft6322_dims": {
+    "sperc": 0.1218,
+    "fid": 199.6,
+    "minutes": 12.0
+   },
+   "c70_official": {
+    "sperc": 0.3539,
+    "fid": 296.4,
+    "minutes": 12.0
+   },
+   "c70_ft6322": {
+    "sperc": 0.2458,
+    "fid": 317.6,
+    "minutes": 12.0
+   },
+   "c70_official_dims1p5": {
+    "sperc": 0.4131,
+    "fid": 309.7,
+    "minutes": 12.0
+   }
+  },
+  "text": {
+   "c162_official": {
+    "sperc": 0.3887,
+    "fid": 240.4,
+    "minutes": 12.0
+   },
+   "c162_ft6322_dims": {
+    "sperc": 0.37,
+    "fid": 247.1,
+    "minutes": 12.0
+   },
+   "c2216_official": {
+    "sperc": 0.1265,
+    "fid": 194.5,
+    "minutes": 12.0
+   },
+   "c2216_ft6322_dims": {
+    "sperc": 0.2345,
+    "fid": 198.9,
+    "minutes": 12.0
+   },
+   "c70_official": {
+    "sperc": 0.1502,
+    "fid": 297.2,
+    "minutes": 12.0
+   },
+   "c70_ft6322": {
+    "sperc": 0.2255,
+    "fid": 324.9,
+    "minutes": 12.0
+   },
+   "c70_official_dims1p5": {
+    "sperc": 0.3814,
+    "fid": 299.6,
+    "minutes": 12.0
+   }
+  },
+  "ours": {
+   "c162_official": {
+    "sperc": 0.5073,
+    "fid": 235.2,
+    "minutes": 12.0
+   },
+   "c162_ft6322_dims": {
+    "sperc": 0.49,
+    "fid": 231.1,
+    "minutes": 12.0
+   },
+   "c2216_official": {
+    "sperc": 0.6385,
+    "fid": 177.7,
+    "minutes": 12.0
+   },
+   "c2216_ft6322_dims": {
+    "sperc": 0.5587,
+    "fid": 194.4,
+    "minutes": 12.0
+   },
+   "c70_official": {
+    "sperc": 0.5823,
+    "fid": 303.6,
+    "minutes": 12.0
+   },
+   "c70_ft6322": {
+    "sperc": 0.3723,
+    "fid": 300.5,
+    "minutes": 12.0
+   },
+   "c70_official_dims1p5": {
+    "sperc": 0.5823,
+    "fid": 303.6,
+    "minutes": 12.0
+   }
+  }
+ },
+ "pool": {
+  "open": {
+   "windows": {
+    "truck day": {
+     "sperc": 0.1708,
+     "minutes": 3.0
+    },
+    "bus day": {
+     "sperc": 0.634,
+     "minutes": 3.0
+    },
+    "bicycle day": {
+     "sperc": 0.0,
+     "minutes": 3.0
+    },
+    "truck night": {
+     "sperc": 0.0,
+     "minutes": 3.0
+    },
+    "moto night": {
+     "sperc": 0.0,
+     "minutes": 3.0
+    },
+    "truck rain": {
+     "sperc": 0.0,
+     "minutes": 3.0
+    }
+   },
+   "group_fid": {
+    "day": 187.6,
+    "night": 293.5,
+    "rain": 223.2
+   }
+  },
+  "bo4": {
+   "windows": {
+    "truck day": {
+     "sperc": 0.4714,
+     "minutes": 12.0
+    },
+    "bus day": {
+     "sperc": 0.6541,
+     "minutes": 12.0
+    },
+    "bicycle day": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "moto night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck rain": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    }
+   },
+   "group_fid": {
+    "day": 189.2,
+    "night": 293.5,
+    "rain": 223.2
+   }
+  },
+  "text": {
+   "windows": {
+    "truck day": {
+     "sperc": 0.3639,
+     "minutes": 12.0
+    },
+    "bus day": {
+     "sperc": 0.672,
+     "minutes": 12.0
+    },
+    "bicycle day": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "moto night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck rain": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    }
+   },
+   "group_fid": {
+    "day": 191.9,
+    "night": 293.5,
+    "rain": 223.2
+   }
+  },
+  "ours": {
+   "windows": {
+    "truck day": {
+     "sperc": 0.4392,
+     "minutes": 12.0
+    },
+    "bus day": {
+     "sperc": 0.6868,
+     "minutes": 12.0
+    },
+    "bicycle day": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "moto night": {
+     "sperc": 0.0,
+     "minutes": 12.0
+    },
+    "truck rain": {
+     "sperc": 0.6961,
+     "minutes": 12.0
+    }
+   },
+   "group_fid": {
+    "day": 195.1,
+    "night": 293.5,
+    "rain": 249.9
+   }
+  }
+ }
+}

@@ -1,0 +1,5598 @@
+{
+"candidate1300_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_cr9_bank0_loopprompt": {
+"cr9_bank0_loopprompt": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_cr9_bank1_bare": {
+"cr9_bank1_bare": {
+"attempts": [
+0.3953
+],
+"best": 0.3953
+}
+},
+"candidate1300_cr9_bank2_bare": {
+"cr9_bank2_bare": {
+"attempts": [
+0.3321
+],
+"best": 0.3321
+}
+},
+"candidate1300_cr9_bank3_bare": {
+"cr9_bank3_bare": {
+"attempts": [
+0.1427
+],
+"best": 0.1427
+}
+},
+"candidate1300_night_cut_in_bo4_bank6": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_bo4_bank7": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_bo4_bank8": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_r1": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_textonly": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_v10b": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_v10c": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_v10d": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_v10e": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_night_cut_in_v10f": {
+"night_moto_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_synth_dist12": {
+"night_moto_cut_in_left_d12": {
+"attempts": [
+0.5473
+],
+"best": 0.5473
+}
+},
+"candidate1300_synth_dist15": {
+"night_moto_cut_in_left_d15": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_synth_dist20": {
+"night_moto_cut_in_left_d20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1300_synth_dist9": {
+"night_moto_cut_in_left_d9": {
+"attempts": [
+0.65
+],
+"best": 0.65
+}
+},
+"candidate1313_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_bo4_bank6": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_bo4_bank7": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_bo4_bank8": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_r1": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_textonly": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_v10b": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.3729
+],
+"best": 0.3729
+}
+},
+"candidate1313_night_truck_v10c": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_v10d": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_v10e": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_night_truck_v10f": {
+"night_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rebind_sweep_off1": {
+"night_truck_cut_in_left_off1": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rebind_sweep_off2": {
+"night_truck_cut_in_left_off2": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rebind_sweep_off3": {
+"night_truck_cut_in_left_off3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rebind_sweep_off4": {
+"night_truck_cut_in_left_off4": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rung2_seed_bank3": {
+"night_truck_cut_in_left_bank3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rung2_seed_bank4": {
+"night_truck_cut_in_left_bank4": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_rung2_seed_bank5": {
+"night_truck_cut_in_left_bank5": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_synth_dist12": {
+"night_truck_cut_in_left_d12": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_synth_dist15": {
+"night_truck_cut_in_left_d15": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_synth_dist20": {
+"night_truck_cut_in_left_d20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1313_synth_dist9": {
+"night_truck_cut_in_left_d9": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1409_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_baseline_m1_off0": {
+"no_injection_baseline_off0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_baseline_m1_off1": {
+"no_injection_baseline_off1": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_baseline_m1_off2": {
+"no_injection_baseline_off2": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_rebind_real_off0": {
+"truck_cut_in_left_off0": {
+"attempts": [
+0.1708
+],
+"best": 0.1708
+}
+},
+"candidate1677_rebind_real_off1": {
+"truck_cut_in_left_off1": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_rebind_real_off2": {
+"truck_cut_in_left_off2": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_rung2_seed_bank3": {
+"truck_cut_in_left_bank3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_rung2_seed_bank4": {
+"truck_cut_in_left_bank4": {
+"attempts": [
+0.1176
+],
+"best": 0.1176
+}
+},
+"candidate1677_rung2_seed_bank5": {
+"truck_cut_in_left_bank5": {
+"attempts": [
+0.1215
+],
+"best": 0.1215
+}
+},
+"candidate1677_truck_cut_in": {
+"truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate1677_truck_cut_in_bo4_bank6": {
+"truck_cut_in_left": {
+"attempts": [
+0.1126
+],
+"best": 0.1126
+}
+},
+"candidate1677_truck_cut_in_bo4_bank7": {
+"truck_cut_in_left": {
+"attempts": [
+0.1349
+],
+"best": 0.1349
+}
+},
+"candidate1677_truck_cut_in_bo4_bank8": {
+"truck_cut_in_left": {
+"attempts": [
+0.4714
+],
+"best": 0.4714
+}
+},
+"candidate1677_truck_cut_in_r1": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.0,
+0.1797
+],
+"best": 0.1797
+}
+},
+"candidate1677_truck_cut_in_textonly": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.3639,
+0.1629,
+0.1336
+],
+"best": 0.3639
+}
+},
+"candidate1677_truck_cut_in_v10b": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.5617
+],
+"best": 0.5617
+}
+},
+"candidate1677_truck_cut_in_v10c": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.1179
+],
+"best": 0.1708
+}
+},
+"candidate1677_truck_cut_in_v10d": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.1179
+],
+"best": 0.1708
+}
+},
+"candidate1677_truck_cut_in_v10e": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.1931
+],
+"best": 0.1931
+}
+},
+"candidate1677_truck_cut_in_v10f": {
+"truck_cut_in_left": {
+"attempts": [
+0.1708,
+0.1583,
+0.1931,
+0.4392
+],
+"best": 0.4392
+}
+},
+"candidate2751_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rain_truck_bo4_bank6": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rain_truck_bo4_bank7": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rain_truck_bo4_bank8": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rain_truck_r1": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.1131
+],
+"best": 0.1131
+}
+},
+"candidate2751_rain_truck_textonly": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rain_truck_v10b": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.4171
+],
+"best": 0.4171
+}
+},
+"candidate2751_rain_truck_v10c": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.1814
+],
+"best": 0.1814
+}
+},
+"candidate2751_rain_truck_v10d": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.1814
+],
+"best": 0.1814
+}
+},
+"candidate2751_rain_truck_v10e": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.4919
+],
+"best": 0.4919
+}
+},
+"candidate2751_rain_truck_v10f": {
+"rain_truck_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.4919,
+0.6961
+],
+"best": 0.6961
+}
+},
+"candidate2751_rebind_sweep_off1": {
+"rain_truck_cut_in_left_off1": {
+"attempts": [
+0.1261
+],
+"best": 0.1261
+}
+},
+"candidate2751_rebind_sweep_off2": {
+"rain_truck_cut_in_left_off2": {
+"attempts": [
+0.1261
+],
+"best": 0.1261
+}
+},
+"candidate2751_rebind_sweep_off3": {
+"rain_truck_cut_in_left_off3": {
+"attempts": [
+0.1261
+],
+"best": 0.1261
+}
+},
+"candidate2751_rebind_sweep_off4": {
+"rain_truck_cut_in_left_off4": {
+"attempts": [
+0.1261
+],
+"best": 0.1261
+}
+},
+"candidate2751_rung2_seed_bank3": {
+"rain_truck_cut_in_left_bank3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rung2_seed_bank4": {
+"rain_truck_cut_in_left_bank4": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_rung2_seed_bank5": {
+"rain_truck_cut_in_left_bank5": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_synth_dist12": {
+"rain_truck_cut_in_left_d12": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_synth_dist15": {
+"rain_truck_cut_in_left_d15": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate2751_synth_dist20": {
+"rain_truck_cut_in_left_d20": {
+"attempts": [
+0.6794
+],
+"best": 0.6794
+}
+},
+"candidate2751_synth_dist9": {
+"rain_truck_cut_in_left_d9": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate28_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate28_bus_bo4_bank6": {
+"bus_cut_in_left": {
+"attempts": [
+0.6301
+],
+"best": 0.6301
+}
+},
+"candidate28_bus_bo4_bank7": {
+"bus_cut_in_left": {
+"attempts": [
+0.6541
+],
+"best": 0.6541
+}
+},
+"candidate28_bus_bo4_bank8": {
+"bus_cut_in_left": {
+"attempts": [
+0.1174
+],
+"best": 0.1174
+}
+},
+"candidate28_bus_r1": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6737,
+0.5612
+],
+"best": 0.6737
+}
+},
+"candidate28_bus_textonly": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6762,
+0.672
+],
+"best": 0.672
+}
+},
+"candidate28_bus_v10b": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.4664,
+0.6048
+],
+"best": 0.634
+}
+},
+"candidate28_bus_v10c": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6545
+],
+"best": 0.6545
+}
+},
+"candidate28_bus_v10d": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6545
+],
+"best": 0.6545
+}
+},
+"candidate28_bus_v10e": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6868
+],
+"best": 0.6868
+}
+},
+"candidate28_bus_v10f": {
+"bus_cut_in_left": {
+"attempts": [
+0.634,
+0.5819,
+0.6868,
+0.6063
+],
+"best": 0.6868
+}
+},
+"candidate41_baseline_official": {
+"no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_bo4_bank6": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_bo4_bank7": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_bo4_bank8": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_r1": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_textonly": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_v10b": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.5
+],
+"best": 0.5
+}
+},
+"candidate41_bicycle_v10c": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_v10d": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_v10e": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_bicycle_v10f": {
+"bicycle_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rebind_sweep_off1": {
+"bicycle_cut_in_left_off1": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rebind_sweep_off2": {
+"bicycle_cut_in_left_off2": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rebind_sweep_off3": {
+"bicycle_cut_in_left_off3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rebind_sweep_off4": {
+"bicycle_cut_in_left_off4": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rung2_seed_bank3": {
+"bicycle_cut_in_left_bank3": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rung2_seed_bank4": {
+"bicycle_cut_in_left_bank4": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_rung2_seed_bank5": {
+"bicycle_cut_in_left_bank5": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_synth_dist12": {
+"bicycle_cut_in_left_d12": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_synth_dist15": {
+"bicycle_cut_in_left_d15": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_synth_dist20": {
+"bicycle_cut_in_left_d20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"candidate41_synth_dist9": {
+"bicycle_cut_in_left_d9": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c162_ft6322_dims_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1443
+],
+"best": 0.1443
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3809
+],
+"best": 0.3809
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1636
+],
+"best": 0.1636
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3602
+],
+"best": 0.3602
+}
+},
+"cl_bo4_c162_ft6322_dims_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1241
+],
+"best": 0.1241
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c162_ft6322_dims_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1139
+],
+"best": 0.1139
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3438
+],
+"best": 0.3438
+},
+"m4_cut_in_right": {
+"attempts": [
+0.123
+],
+"best": 0.123
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c162_official_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3883
+],
+"best": 0.3883
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3681
+],
+"best": 0.3681
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1597
+],
+"best": 0.1597
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1421
+],
+"best": 0.1421
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3803
+],
+"best": 0.3803
+}
+},
+"cl_bo4_c162_official_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.5145
+],
+"best": 0.5145
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.389
+],
+"best": 0.389
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.379
+],
+"best": 0.379
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3944
+],
+"best": 0.3944
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4152
+],
+"best": 0.4152
+}
+},
+"cl_bo4_c162_official_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4173
+],
+"best": 0.4173
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3518
+],
+"best": 0.3518
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3657
+],
+"best": 0.3657
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3658
+],
+"best": 0.3658
+}
+},
+"cl_bo4_c2216_ft6322_dims_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1226
+],
+"best": 0.1226
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1673
+],
+"best": 0.1673
+}
+},
+"cl_bo4_c2216_ft6322_dims_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1484
+],
+"best": 0.1484
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1679
+],
+"best": 0.1679
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1384
+],
+"best": 0.1384
+}
+},
+"cl_bo4_c2216_ft6322_dims_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c2216_official_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c2216_official_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3547
+],
+"best": 0.3547
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3575
+],
+"best": 0.3575
+}
+},
+"cl_bo4_c2216_official_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c70_ft6322_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1306
+],
+"best": 0.1306
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1192
+],
+"best": 0.1192
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1193
+],
+"best": 0.1193
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3969
+],
+"best": 0.3969
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c70_ft6322_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1345
+],
+"best": 0.1345
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1271
+],
+"best": 0.1271
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"cl_bo4_c70_ft6322_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1223
+],
+"best": 0.1223
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1986
+],
+"best": 0.1986
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1237
+],
+"best": 0.1237
+}
+},
+"cl_bo4_c70_official_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1276
+],
+"best": 0.1276
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1214
+],
+"best": 0.1214
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3863
+],
+"best": 0.3863
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3564
+],
+"best": 0.3564
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1465
+],
+"best": 0.1465
+}
+},
+"cl_bo4_c70_official_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4459
+],
+"best": 0.4459
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3572
+],
+"best": 0.3572
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3661
+],
+"best": 0.3661
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4437
+],
+"best": 0.4437
+}
+},
+"cl_bo4_c70_official_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.117
+],
+"best": 0.117
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1664
+],
+"best": 0.1664
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1732
+],
+"best": 0.1732
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1666
+],
+"best": 0.1666
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1676
+],
+"best": 0.1676
+}
+},
+"cl_bo4_c70_official_dims1p5_bank6": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.123
+],
+"best": 0.123
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4138
+],
+"best": 0.4138
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1398
+],
+"best": 0.1398
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3806
+],
+"best": 0.3806
+}
+},
+"cl_bo4_c70_official_dims1p5_bank7": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3821
+],
+"best": 0.3821
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4155
+],
+"best": 0.4155
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1157
+],
+"best": 0.1157
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3935
+],
+"best": 0.3935
+}
+},
+"cl_bo4_c70_official_dims1p5_bank8": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4113
+],
+"best": 0.4113
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1436
+],
+"best": 0.1436
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4157
+],
+"best": 0.4157
+},
+"m4_cut_in_right": {
+"attempts": [
+0.4295
+],
+"best": 0.4295
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3652
+],
+"best": 0.3652
+}
+},
+"cl_c162_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1309,
+0.4133,
+0.0
+],
+"best": 0.4133
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.408,
+0.3908,
+0.0
+],
+"best": 0.408
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3406,
+0.3871,
+0.0
+],
+"best": 0.3406
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.523,
+0.1974,
+0.3651
+],
+"best": 0.523
+}
+},
+"cl_c162_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.4602,
+0.4388
+],
+"best": 0.4602
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3971,
+0.3264,
+0.3683
+],
+"best": 0.3683
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4595,
+0.0,
+0.3355
+],
+"best": 0.4595
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.4667,
+0.3972
+],
+"best": 0.4667
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4147,
+0.4472,
+0.3938
+],
+"best": 0.4472
+}
+},
+"cl_c2216_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.127,
+0.1545,
+0.4523
+],
+"best": 0.4523
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1272,
+0.4,
+0.3924
+],
+"best": 0.4
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.1933,
+0.1258
+],
+"best": 0.1933
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1254,
+0.1871,
+0.4528
+],
+"best": 0.4528
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1492,
+0.1226,
+0.129
+],
+"best": 0.1492
+}
+},
+"cl_c2216_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1604,
+0.0,
+0.0
+],
+"best": 0.1604
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1158,
+0.0,
+0.3689
+],
+"best": 0.3689
+},
+"m4_cut_in_right": {
+"attempts": [
+0.13,
+0.0,
+0.0
+],
+"best": 0.13
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.1469
+],
+"best": 0.1469
+}
+},
+"cl_c70_ft6322": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.0,
+0.0
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1477,
+0.0,
+0.0
+],
+"best": 0.1477
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.5121,
+0.0
+],
+"best": 0.5121
+},
+"m4_cut_in_right": {
+"attempts": [
+0.12,
+0.1128,
+0.3631
+],
+"best": 0.12
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"cl_c70_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.166,
+0.1634,
+0.0
+],
+"best": 0.166
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916,
+0.1236,
+0.0
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1234,
+0.3615,
+0.0
+],
+"best": 0.3615
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1908,
+0.179,
+0.0
+],
+"best": 0.1908
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1567,
+0.1584,
+0.0
+],
+"best": 0.1584
+}
+},
+"cl_c70_official_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.352,
+0.3836,
+0.3288
+],
+"best": 0.3836
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1383,
+0.3996,
+0.3484
+],
+"best": 0.3996
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1701,
+0.3669,
+0.0
+],
+"best": 0.3669
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3331,
+0.3959,
+0.3046
+],
+"best": 0.3331
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3572,
+0.3516,
+0.3617
+],
+"best": 0.3572
+}
+},
+"cl_r1_c162_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1309,
+0.4133,
+0.0,
+0.1174
+],
+"best": 0.4133
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.3612
+],
+"best": 0.3612
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.408,
+0.3908,
+0.0,
+0.3839
+],
+"best": 0.408
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3406,
+0.3871,
+0.0,
+0.2374
+],
+"best": 0.3406
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.523,
+0.1974,
+0.3651,
+0.2332
+],
+"best": 0.523
+}
+},
+"cl_r1_c162_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.4602,
+0.4388,
+0.4006
+],
+"best": 0.4602
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3971,
+0.3264,
+0.3683,
+0.3767
+],
+"best": 0.3683
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4595,
+0.0,
+0.3355,
+0.1314
+],
+"best": 0.4595
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.4667,
+0.3972,
+0.4554
+],
+"best": 0.4667
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4147,
+0.4472,
+0.3938,
+0.4087
+],
+"best": 0.4472
+}
+},
+"cl_r1_c2216_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.127,
+0.1545,
+0.4523,
+0.1163
+],
+"best": 0.4523
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1272,
+0.4,
+0.3924,
+0.0
+],
+"best": 0.4
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.1933,
+0.1258,
+0.0
+],
+"best": 0.1933
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1254,
+0.1871,
+0.4528,
+0.0
+],
+"best": 0.4528
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1492,
+0.1226,
+0.129,
+0.1176
+],
+"best": 0.1492
+}
+},
+"cl_r1_c2216_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1604,
+0.0,
+0.0,
+0.0
+],
+"best": 0.1604
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1158,
+0.0,
+0.3689,
+0.0
+],
+"best": 0.3689
+},
+"m4_cut_in_right": {
+"attempts": [
+0.13,
+0.0,
+0.0,
+0.0
+],
+"best": 0.13
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.1469,
+0.0
+],
+"best": 0.1469
+}
+},
+"cl_r1_c70_ft6322": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.0,
+0.0,
+0.3411
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132,
+0.0,
+0.0,
+0.1434
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.1525,
+0.0,
+0.1393
+],
+"best": 0.1417
+},
+"m4_cut_in_right": {
+"attempts": [
+0.12,
+0.0,
+0.3631,
+0.1126
+],
+"best": 0.12
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.1465
+],
+"best": 0.1465
+}
+},
+"cl_r1_c70_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.1451
+],
+"best": 0.1451
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916,
+0.1236,
+0.0,
+0.0
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.3754,
+0.0,
+0.1213
+],
+"best": 0.3754
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1584,
+0.0,
+0.0
+],
+"best": 0.1584
+}
+},
+"cl_r1_c70_official_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3746,
+0.3903,
+0.3288,
+0.1236
+],
+"best": 0.3903
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3468,
+0.4164,
+0.3523,
+0.3336
+],
+"best": 0.4164
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1439,
+0.3669,
+0.0,
+0.3324
+],
+"best": 0.3669
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3474,
+0.4001,
+0.3046,
+0.3278
+],
+"best": 0.3474
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.375,
+0.3516,
+0.3617,
+0.3802
+],
+"best": 0.3802
+}
+},
+"cl_smoke_c162_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.4602,
+0.4388
+],
+"best": 0.4602
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.4667,
+0.3972
+],
+"best": 0.4667
+}
+},
+"cl_text_c162_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1309,
+0.4453,
+0.0,
+0.0
+],
+"best": 0.4453
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.1329,
+0.0,
+0.1395
+],
+"best": 0.1329
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.408,
+0.1721,
+0.0,
+0.1636
+],
+"best": 0.408
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3406,
+0.1814,
+0.0,
+0.0
+],
+"best": 0.3406
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.523,
+0.4115,
+0.3743,
+0.2304
+],
+"best": 0.523
+}
+},
+"cl_text_c162_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.3805,
+0.161,
+0.3709
+],
+"best": 0.3805
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3971,
+0.1546,
+0.3664,
+0.3732
+],
+"best": 0.3664
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4595,
+0.1179,
+0.3803,
+0.1563
+],
+"best": 0.4595
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.3437,
+0.1581,
+0.13
+],
+"best": 0.3437
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4147,
+0.4284,
+0.3932,
+0.4011
+],
+"best": 0.3932
+}
+},
+"cl_text_c2216_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.127,
+0.0,
+0.1251,
+0.0
+],
+"best": 0.127
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1272,
+0.0,
+0.1527,
+0.0
+],
+"best": 0.1527
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.3879,
+0.1389,
+0.0
+],
+"best": 0.3879
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1254,
+0.1265,
+0.3557,
+0.0
+],
+"best": 0.3557
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1492,
+0.0,
+0.0,
+0.0
+],
+"best": 0.1492
+}
+},
+"cl_text_c2216_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1604,
+0.0,
+0.0,
+0.0
+],
+"best": 0.1604
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.113
+],
+"best": 0.113
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1158,
+0.0,
+0.0,
+0.0
+],
+"best": 0.1158
+},
+"m4_cut_in_right": {
+"attempts": [
+0.13,
+0.0,
+0.1173,
+0.0
+],
+"best": 0.13
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1133,
+0.0,
+0.0
+],
+"best": 0.1133
+}
+},
+"cl_text_c70_ft6322": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.1472,
+0.156,
+0.131
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132,
+0.0,
+0.0,
+0.16
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.3251,
+0.3694,
+0.1627
+],
+"best": 0.1417
+},
+"m4_cut_in_right": {
+"attempts": [
+0.12,
+0.0,
+0.0,
+0.118
+],
+"best": 0.12
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.3658
+],
+"best": 0.3658
+}
+},
+"cl_text_c70_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916,
+0.0,
+0.0,
+0.1537
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.1206,
+0.0,
+0.12
+],
+"best": 0.1206
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0,
+0.0,
+0.0,
+0.1218
+],
+"best": 0.1218
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.117,
+0.0,
+0.0
+],
+"best": 0.117
+}
+},
+"cl_text_c70_official_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3746,
+0.3938,
+0.1309,
+0.375
+],
+"best": 0.3746
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3468,
+0.4447,
+0.337,
+0.1995
+],
+"best": 0.4447
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1439,
+0.119,
+0.1346,
+0.3518
+],
+"best": 0.3518
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3474,
+0.3272,
+0.1407,
+0.1909
+],
+"best": 0.3474
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.375,
+0.3552,
+0.3184,
+0.3886
+],
+"best": 0.3886
+}
+},
+"cl_v10f_c162_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1309,
+0.4133,
+0.4148,
+0.4153
+],
+"best": 0.4133
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.4315,
+0.3342
+],
+"best": 0.4315
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.408,
+0.3908,
+0.5262,
+0.4023
+],
+"best": 0.5262
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3406,
+0.3871,
+0.1701,
+0.5559
+],
+"best": 0.5559
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.523,
+0.1974,
+0.1182,
+0.4505
+],
+"best": 0.523
+}
+},
+"cl_v10f_c162_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.4602,
+0.4359,
+0.4122
+],
+"best": 0.4602
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3971,
+0.3264,
+0.4065,
+0.3892
+],
+"best": 0.3971
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4595,
+0.0,
+0.4987,
+0.4377
+],
+"best": 0.4987
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.4667,
+0.5836,
+0.7336
+],
+"best": 0.7336
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4147,
+0.4472,
+0.3918,
+0.4539
+],
+"best": 0.4472
+}
+},
+"cl_v10f_c2216_ft6322_dims": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.127,
+0.1545,
+0.379,
+0.541
+],
+"best": 0.541
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1272,
+0.4,
+0.415,
+0.5118
+],
+"best": 0.5118
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.1933,
+0.4884,
+0.5357
+],
+"best": 0.5357
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1254,
+0.1871,
+0.6214,
+0.7206
+],
+"best": 0.7206
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1492,
+0.1226,
+0.1713,
+0.4847
+],
+"best": 0.4847
+}
+},
+"cl_v10f_c2216_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1604,
+0.0,
+0.6235,
+0.6778
+],
+"best": 0.6778
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.5618,
+0.7345
+],
+"best": 0.7345
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1158,
+0.0,
+0.4159,
+0.5663
+],
+"best": 0.5663
+},
+"m4_cut_in_right": {
+"attempts": [
+0.13,
+0.0,
+0.5826,
+0.5477
+],
+"best": 0.5477
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.5848,
+0.666
+],
+"best": 0.666
+}
+},
+"cl_v10f_c70_ft6322": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.0,
+0.3814,
+0.4152
+],
+"best": 0.4152
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132,
+0.0,
+0.1927,
+0.3874
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.1525,
+0.5328,
+0.44
+],
+"best": 0.5328
+},
+"m4_cut_in_right": {
+"attempts": [
+0.12,
+0.0,
+0.613,
+0.4675
+],
+"best": 0.613
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.3662,
+0.1687
+],
+"best": 0.1687
+}
+},
+"cl_v10f_c70_official": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.6159,
+0.4127
+],
+"best": 0.6159
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916,
+0.1236,
+0.5232,
+0.5028
+],
+"best": 0.5232
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.3754,
+0.6649,
+0.504
+],
+"best": 0.6649
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0,
+0.0,
+0.3669,
+0.5655
+],
+"best": 0.5655
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1584,
+0.5418,
+0.3633
+],
+"best": 0.5418
+}
+},
+"cl_v10f_c70_official_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3746,
+0.3903,
+0.6159,
+0.4127
+],
+"best": 0.6159
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3468,
+0.4164,
+0.5232,
+0.5028
+],
+"best": 0.5232
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1439,
+0.3669,
+0.6649,
+0.504
+],
+"best": 0.6649
+},
+"m4_cut_in_right": {
+"attempts": [
+0.3474,
+0.4001,
+0.3669,
+0.5655
+],
+"best": 0.5655
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.375,
+0.3516,
+0.5418,
+0.3633
+],
+"best": 0.5418
+}
+},
+"exp_c70_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.9252
+],
+"best": 0.9252
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.9524
+],
+"best": 0.9524
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.9555
+],
+"best": 0.9555
+}
+},
+"exp_c70_closed_loop_v2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.9252
+],
+"best": 0.9252
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.9524
+],
+"best": 0.9524
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.9533
+],
+"best": 0.9533
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.925
+],
+"best": 0.925
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.9555
+],
+"best": 0.9555
+}
+},
+"exp_c70_open_loop_baseline": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.9252
+],
+"best": 0.9252
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.9524
+],
+"best": 0.9524
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.9555
+],
+"best": 0.9555
+}
+},
+"exp_geometry_2d_distance_sweep": {
+"geo_left_lat3p0_lon16": {
+"attempts": [
+0.3753
+],
+"best": 0.3753
+},
+"geo_left_lat3p0_lon20": {
+"attempts": [
+0.4294
+],
+"best": 0.4294
+},
+"geo_left_lat3p0_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat3p5_lon16": {
+"attempts": [
+0.4328
+],
+"best": 0.4328
+},
+"geo_left_lat3p5_lon20": {
+"attempts": [
+0.4882
+],
+"best": 0.4882
+},
+"geo_left_lat3p5_lon24": {
+"attempts": [
+0.4184
+],
+"best": 0.4184
+},
+"geo_left_lat4p0_lon16": {
+"attempts": [
+0.4098
+],
+"best": 0.4098
+},
+"geo_left_lat4p0_lon20": {
+"attempts": [
+0.4872
+],
+"best": 0.4872
+},
+"geo_left_lat4p0_lon24": {
+"attempts": [
+0.4764
+],
+"best": 0.4764
+},
+"geo_left_lat4p5_lon16": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat4p5_lon20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat4p5_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat3p0_lon16": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat3p0_lon20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat3p0_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat3p5_lon16": {
+"attempts": [
+0.4314
+],
+"best": 0.4314
+},
+"geo_right_lat3p5_lon20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat3p5_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat4p0_lon16": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat4p0_lon20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat4p0_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat4p5_lon16": {
+"attempts": [
+0.4965
+],
+"best": 0.4965
+},
+"geo_right_lat4p5_lon20": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_right_lat4p5_lon24": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_geometry_left_distance_probe": {
+"geo_left_lat2p0_lon14": {
+"attempts": [
+0.3656
+],
+"best": 0.3656
+},
+"geo_left_lat2p0_lon18": {
+"attempts": [
+0.4149
+],
+"best": 0.4149
+},
+"geo_left_lat2p0_lon22": {
+"attempts": [
+0.4262
+],
+"best": 0.4262
+},
+"geo_left_lat3p5_lon20": {
+"attempts": [
+0.4882
+],
+"best": 0.4882
+}
+},
+"exp_geometry_left_size_probe": {
+"geo_left_size1p25": {
+"attempts": [
+0.4131
+],
+"best": 0.4131
+},
+"geo_left_size1p5": {
+"attempts": [
+0.4145
+],
+"best": 0.4145
+},
+"geo_left_size1p75": {
+"attempts": [
+0.4525
+],
+"best": 0.4525
+}
+},
+"exp_geometry_sweep": {
+"geo_lat3p2_lon12p0": {
+"attempts": [
+0.4455
+],
+"best": 0.4455
+},
+"geo_lat3p2_lon16p0": {
+"attempts": [
+0.4818
+],
+"best": 0.4818
+},
+"geo_lat3p2_lon9p0": {
+"attempts": [
+0.5828
+],
+"best": 0.5828
+},
+"geo_lat4p5_lon12p0": {
+"attempts": [
+0.5211
+],
+"best": 0.5211
+},
+"geo_lat4p5_lon16p0": {
+"attempts": [
+0.4887
+],
+"best": 0.4887
+},
+"geo_lat4p5_lon9p0": {
+"attempts": [
+0.5473
+],
+"best": 0.5473
+},
+"geo_lat6p0_lon12p0": {
+"attempts": [
+0.4929
+],
+"best": 0.4929
+},
+"geo_lat6p0_lon16p0": {
+"attempts": [
+0.4563
+],
+"best": 0.4563
+},
+"geo_lat6p0_lon9p0": {
+"attempts": [
+0.4638
+],
+"best": 0.4638
+}
+},
+"exp_geometry_sweep_left": {
+"geo_left_lat1p6_lon5p0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat1p6_lon7p0": {
+"attempts": [
+0.4603
+],
+"best": 0.4603
+},
+"geo_left_lat1p6_lon9p0": {
+"attempts": [
+0.4254
+],
+"best": 0.4254
+},
+"geo_left_lat2p0_lon5p0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat2p0_lon7p0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat2p0_lon9p0": {
+"attempts": [
+0.4616
+],
+"best": 0.4616
+},
+"geo_left_lat2p4_lon5p0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat2p4_lon7p0": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"geo_left_lat2p4_lon9p0": {
+"attempts": [
+0.4402
+],
+"best": 0.4402
+}
+},
+"exp_geometry_sweep_v2": {
+"geo_lat3p2_lon12p0": {
+"attempts": [
+0.4184
+],
+"best": 0.4184
+},
+"geo_lat3p2_lon16p0": {
+"attempts": [
+0.5479
+],
+"best": 0.5479
+},
+"geo_lat3p2_lon9p0": {
+"attempts": [
+0.6416
+],
+"best": 0.6416
+},
+"geo_lat4p5_lon12p0": {
+"attempts": [
+0.5118
+],
+"best": 0.5118
+},
+"geo_lat4p5_lon16p0": {
+"attempts": [
+0.414
+],
+"best": 0.414
+},
+"geo_lat4p5_lon9p0": {
+"attempts": [
+0.3927
+],
+"best": 0.3927
+},
+"geo_lat6p0_lon12p0": {
+"attempts": [
+0.4115
+],
+"best": 0.4115
+},
+"geo_lat6p0_lon16p0": {
+"attempts": [
+0.4251
+],
+"best": 0.4251
+},
+"geo_lat6p0_lon9p0": {
+"attempts": [
+0.4986
+],
+"best": 0.4986
+}
+},
+"exp_v10w_candidate162_ft6322_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1309
+],
+"best": 0.1309
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.408
+],
+"best": 0.408
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.523
+],
+"best": 0.523
+}
+},
+"exp_v10w_candidate162_official_anchor": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4146
+],
+"best": 0.4146
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.403
+],
+"best": 0.403
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4674
+],
+"best": 0.4674
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4026
+],
+"best": 0.4026
+}
+},
+"exp_v10w_candidate2216_ft6322_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v10w_candidate2216_official_anchor": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v3_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179
+],
+"best": 0.4179
+}
+},
+"exp_v3_closed_loop_saturated": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179
+],
+"best": 0.4179
+}
+},
+"exp_v3_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179
+],
+"best": 0.4179
+}
+},
+"exp_v4_closed_loop_structural": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.5355
+],
+"best": 0.5355
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179
+],
+"best": 0.4179
+}
+},
+"exp_v5_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617,
+0.6365
+],
+"best": 0.6365
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356,
+0.7014
+],
+"best": 0.7014
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.5355
+],
+"best": 0.5355
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179,
+0.6896
+],
+"best": 0.6896
+}
+},
+"exp_v5_closed_loop_saturated": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617,
+0.424,
+0.424
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356,
+0.0,
+0.3305
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179,
+0.0,
+0.0
+],
+"best": 0.4179
+}
+},
+"exp_v5_closed_loop_saturated_INVALID": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617,
+0.6365
+],
+"best": 0.6365
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356,
+0.7014
+],
+"best": 0.7014
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.5355
+],
+"best": 0.5355
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179,
+0.6896
+],
+"best": 0.6896
+}
+},
+"exp_v5_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4617
+],
+"best": 0.4617
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4356
+],
+"best": 0.4356
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4179
+],
+"best": 0.4179
+}
+},
+"exp_v6_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.6416
+],
+"best": 0.6416
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4963
+],
+"best": 0.4963
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4767,
+0.6667
+],
+"best": 0.6667
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4161,
+0.443,
+0.4192
+],
+"best": 0.443
+}
+},
+"exp_v6_closed_loop_saturated": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.6416
+],
+"best": 0.6416
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4963
+],
+"best": 0.4963
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4767,
+0.4228,
+0.4228
+],
+"best": 0.4767
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4161,
+0.3957,
+0.3957
+],
+"best": 0.3957
+}
+},
+"exp_v6_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.6416
+],
+"best": 0.6416
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4963
+],
+"best": 0.4963
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4767
+],
+"best": 0.4767
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.4161
+],
+"best": 0.4161
+}
+},
+"exp_v7_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.4227,
+0.0
+],
+"best": 0.4227
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.479,
+0.4656,
+0.0
+],
+"best": 0.4656
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4945,
+0.4476,
+0.0
+],
+"best": 0.4476
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v7_closed_loop_saturated": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.479,
+0.0,
+0.0
+],
+"best": 0.479
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4945,
+0.0,
+0.0
+],
+"best": 0.4945
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v7_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.479
+],
+"best": 0.479
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.4945
+],
+"best": 0.4945
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v8_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4616,
+0.4169,
+0.4028
+],
+"best": 0.4169
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4309,
+0.4743,
+0.0
+],
+"best": 0.4743
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.332,
+0.0,
+0.4284
+],
+"best": 0.4284
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.4195
+],
+"best": 0.4195
+}
+},
+"exp_v8_closed_loop_r2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4616,
+0.3791,
+0.0
+],
+"best": 0.4616
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4309,
+0.4906,
+0.4444
+],
+"best": 0.4444
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.332,
+0.0,
+0.0
+],
+"best": 0.332
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.3641,
+0.3641
+],
+"best": 0.3641
+}
+},
+"exp_v8_closed_loop_saturated": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4616,
+0.3095,
+0.4394
+],
+"best": 0.4616
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4309,
+0.4879,
+0.3722
+],
+"best": 0.4879
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.332,
+0.4294,
+0.4294
+],
+"best": 0.4294
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.4431,
+0.4431
+],
+"best": 0.4431
+}
+},
+"exp_v8_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4616
+],
+"best": 0.4616
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4309
+],
+"best": 0.4309
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.332
+],
+"best": 0.332
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_INVALID_win48_gen8_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4353,
+0.0,
+0.4258
+],
+"best": 0.4353
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_INVALID_win48_gen8_no_escalation": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4353,
+0.0,
+0.4258
+],
+"best": 0.4353
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_INVALID_win48_gen8_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4353
+],
+"best": 0.4353
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_closed_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.0,
+0.0
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_closed_loop_bank1": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1284
+],
+"best": 0.1284
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.182
+],
+"best": 0.182
+}
+},
+"exp_v9_closed_loop_bank2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1836,
+0.0,
+0.0
+],
+"best": 0.1836
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1918,
+0.1135,
+0.0
+],
+"best": 0.1918
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1613,
+0.0,
+0.0
+],
+"best": 0.1613
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_closed_loop_r2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.0,
+0.0
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_closed_loop_r3": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.0,
+0.0
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_closed_loop_r4_lever": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.1607,
+0.0
+],
+"best": 0.1607
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.156
+],
+"best": 0.156
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1761,
+0.0
+],
+"best": 0.1761
+}
+},
+"exp_v9_closed_loop_r5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.1607,
+0.0
+],
+"best": 0.1607
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.156
+],
+"best": 0.156
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1761,
+0.0
+],
+"best": 0.1761
+}
+},
+"exp_v9_ft6322_closed_loop_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.404,
+0.121
+],
+"best": 0.404
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.1199
+],
+"best": 0.1199
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.1209,
+0.1227
+],
+"best": 0.1227
+}
+},
+"exp_v9_ft6322_no_escalation_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.1447,
+0.0
+],
+"best": 0.1447
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0,
+0.3646,
+0.1414
+],
+"best": 0.3646
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0,
+0.1446,
+0.1179
+],
+"best": 0.1446
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.1195
+],
+"best": 0.1195
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_ft6322_open_loop_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_m5_debug": {
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_no_escalation": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.0,
+0.0
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_official_open_50steps": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_official_open_anchor_rerun": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_official_open_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_open_loop": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_open_loop_bank1": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1284
+],
+"best": 0.1284
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_open_loop_bank2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1836
+],
+"best": 0.1836
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1918
+],
+"best": 0.1918
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1613
+],
+"best": 0.1613
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_open_loop_sb8f": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4616
+],
+"best": 0.4616
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.4309
+],
+"best": 0.4309
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.332
+],
+"best": 0.332
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9_seed_only": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132,
+0.1206,
+0.0
+],
+"best": 0.1206
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.117,
+0.0
+],
+"best": 0.117
+}
+},
+"exp_v9c_ft6322_closed_loop_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.0,
+0.0
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132,
+0.0,
+0.0
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.0,
+0.0
+],
+"best": 0.1417
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1318,
+0.0,
+0.0
+],
+"best": 0.1318
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9c_ft6322_dims1p5_open": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1642
+],
+"best": 0.1642
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1257
+],
+"best": 0.1257
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3615
+],
+"best": 0.3615
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1318
+],
+"best": 0.1318
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.2048
+],
+"best": 0.2048
+}
+},
+"exp_v9c_ft6322_no_escalation_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678,
+0.0,
+0.0
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132,
+0.0,
+0.0
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417,
+0.0,
+0.0
+],
+"best": 0.1417
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1318,
+0.0,
+0.0
+],
+"best": 0.1318
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0,
+0.0,
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9c_ft6322_open_loop_bank0": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.132
+],
+"best": 0.132
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417
+],
+"best": 0.1417
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1318
+],
+"best": 0.1318
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9c_ft6322_open_loop_bank0_v2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3678
+],
+"best": 0.3678
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1477
+],
+"best": 0.1477
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1417
+],
+"best": 0.1417
+},
+"m4_intersection_approach": {
+"attempts": [
+0.1318
+],
+"best": 0.1318
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9c_official_open_anchor": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3916
+],
+"best": 0.3916
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1132
+],
+"best": 0.1132
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9c_official_open_dims1p5": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3746
+],
+"best": 0.3746
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1469
+],
+"best": 0.1469
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.1439
+],
+"best": 0.1439
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.1297
+],
+"best": 0.1297
+}
+},
+"exp_v9r1_ft6322_dims1p5_open": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1696
+],
+"best": 0.1696
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.1623
+],
+"best": 0.1623
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"exp_v9r1_official_open_anchor": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_intersection_approach": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"m4right_c2216_ft6322_dims": {
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"m4right_c2216_official": {
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"m4right_c70_ft6322": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"m4right_c70_official_dims1p5": {
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"seedbank1_c162": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1279,
+0.3825,
+0.1292
+],
+"best": 0.3825
+},
+"m2_rainy_night_cut_in": {
+"attempts": [
+0.3915,
+0.3709,
+0.4117
+],
+"best": 0.4117
+},
+"m3_lane_change_left_to_ego": {
+"attempts": [
+0.3792,
+0.4056,
+0.4103
+],
+"best": 0.4103
+},
+"m4_cut_in_right": {
+"attempts": [
+0.1169,
+0.3801,
+0.3361
+],
+"best": 0.3361
+},
+"m5_low_visibility_cut_in": {
+"attempts": [
+0.3765,
+0.4487,
+0.1713
+],
+"best": 0.4487
+}
+},
+"seedctl_m1_bank1": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.1279
+],
+"best": 0.1279
+}
+},
+"seedctl_m1_bank2": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.3876
+],
+"best": 0.3876
+}
+},
+"seedctl_m1_full": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.4076,
+0.4602,
+0.4388
+],
+"best": 0.4602
+}
+},
+"seedctl_m4_bank1": {
+"m4_cut_in_right": {
+"attempts": [
+0.1169
+],
+"best": 0.1169
+}
+},
+"seedctl_m4_bank2": {
+"m4_cut_in_right": {
+"attempts": [
+0.3693
+],
+"best": 0.3693
+}
+},
+"seedctl_m4_full": {
+"m4_cut_in_right": {
+"attempts": [
+0.3928,
+0.4667,
+0.3972
+],
+"best": 0.4667
+}
+},
+"smoke_c162_ft6322_dims_m4right": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"smoke_c162_official_m4right": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"smoke_c70_official_m4right": {
+"m1_night_cut_in_left": {
+"attempts": [
+0.0
+],
+"best": 0.0
+},
+"m4_cut_in_right": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v10w_candidate162_baseline_ft6322": {
+"v10w_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v10w_candidate162_baseline_official": {
+"v10w_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v10w_candidate2216_baseline_ft6322": {
+"v10w_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v10w_candidate2216_baseline_official": {
+"v10w_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v9r1_no_injection_baseline_ft6322_c70sub": {
+"v9r1_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+},
+"v9r1_no_injection_baseline_official_c70sub": {
+"v9r1_no_injection_baseline": {
+"attempts": [
+0.0
+],
+"best": 0.0
+}
+}
+}
