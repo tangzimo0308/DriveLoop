@@ -6,13 +6,26 @@
 
 DriveLoop wraps a **frozen** [DriveDreamer-2](https://drivedreamer2.github.io) (DD2) backend in a closed loop of **generation, evaluation, diagnosis, and refinement**. Each attempt is rendered on a real nuScenes source scene and scored by a perception-oriented evaluator (YOLOv8 + BoT-SORT). Failed attempts descend a refinement ladder: strengthen structured conditions and refine the prompt text (Rung 1), inject a synthetic close-range trajectory of the requested category (Rung 2), and reseed (Rung 3). Keep-best selection guarantees the returned video is never worse than the single pass. The backend weights are never updated.
 
+![DriveLoop framework](assets/framework.png)
+
+## Example: a request every baseline fails
+
+The user asks for *"a truck cuts in from my left on a rainy street."* The open-loop pass renders a convincing rainy street but no detectable truck (top row). The synthetic rung makes the truck appear and be detected, confidence 0.32 to 0.52, but it moves against the request, so the joint gate rejects it (middle row). The reseeded attempt is detected at 0.81 and cuts in from the left as requested, and this is the clip the loop accepts (bottom row). Best-of-4 resampling and text-only refinement both stay at score 0 on this request.
+
+![Rainy truck cut-in: open-loop vs synthetic rung vs accepted attempt](assets/rain_case.png)
+
+Generation is deterministic under the fixed seed bank, so every accepted clip can be re-rendered exactly from the records in `experiments/`.
+
 ## Key results
 
 - Mean perception score on seven backend arms: **0.208 → 0.533** (+156% over single-pass DD2), 32/35 requests improve, 0 regress.
 - At the same 4-attempt budget, DriveLoop beats best-of-4 resampling by **73%** (0.533 vs 0.308).
 - Realism improves alongside accuracy: FID 166.4 → 156.7, FVD 2103 → 1752 against real nuScenes clips.
-- A rainy truck cut-in request that every baseline fails (score 0) reaches full gate acceptance (0.696, direction correct).
 - One NVIDIA A10 (24 GB), fp16, about 3 minutes per attempt, at most about 12 minutes per request at T=4.
+
+All strategies share the render budget T. The gap opens at T=3, where the ladder reaches the synthetic-trajectory rung:
+
+![Render budget curves](assets/budget_curves.png)
 
 ## Repository layout
 
@@ -24,6 +37,7 @@ DriveLoop wraps a **frozen** [DriveDreamer-2](https://drivedreamer2.github.io) (
 | `tests/` | Unit and integration tests (`pytest tests/`) |
 | `experiments/` | Dated experiment records for every reported result |
 | `results/` | Paper data: per-attempt scores (`driveloop_plotdata.json`), metric curves (`measurement_curves.json`) |
+| `assets/` | README figures |
 | `dreamer-datasets/`, `dreamer-models/`, `dreamer-train/` | Upstream DD2 runtime (frozen, unmodified weights) |
 | `DOCS/` | DD2 environment setup: `install.md`, `preparation.md`, `trainval.md` |
 
