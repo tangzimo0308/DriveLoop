@@ -14,7 +14,11 @@ The user asks for *"a truck cuts in from my left on a rainy street."* The open-l
 
 ![Rainy truck cut-in: open-loop vs synthetic rung vs accepted attempt](assets/rain_case.png)
 
-Generation is deterministic under the fixed seed bank, so every accepted clip can be re-rendered exactly from the records in `experiments/`.
+The same request re-run live on the current server (animated, YOLOv8 detections drawn as reported by the evaluator):
+
+![Open-loop vs DriveLoop on the rainy truck request](assets/rain_case_demo.gif)
+
+A note on reproducibility: runs are deterministic under the fixed seed bank on fixed hardware, and every paper number has a matching record in `experiments/` from the original NVIDIA A10 runs. The animated demo above was regenerated on an RTX 5090, where the same seeds sample different videos, so its scores differ from the paper table while the loop behavior (single pass fails, refinement recovers the truck) is unchanged.
 
 ## Key results
 
