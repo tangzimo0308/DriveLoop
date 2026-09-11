@@ -37,7 +37,6 @@ All strategies share the render budget T. The gap opens at T=3, where the ladder
 | --- | --- |
 | `driveloop/` | Core package: grounding, conditioning, source selection, DD2 backend adapter, evaluators, refiner, runner |
 | `scripts/` | Experiment entry points (see below) |
-| `scripts/audits/` | One-off diagnostic and audit tools used during development |
 | `tests/` | Unit and integration tests (`pytest tests/`) |
 | `experiments/` | Dated experiment records for every reported result |
 | `results/` | Paper data: per-attempt scores (`driveloop_plotdata.json`), metric curves (`measurement_curves.json`) |
