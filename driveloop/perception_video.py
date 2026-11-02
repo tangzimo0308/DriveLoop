@@ -3,6 +3,12 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 import tempfile
+import copy
+import hashlib
+import importlib.metadata
+import inspect
+import json
+import math
 from typing import Any, Dict, Iterable, List, Protocol, Sequence, Tuple
 
 from driveloop.evaluators import BaseEvaluator
@@ -97,10 +103,107 @@ class OpenCVFrameReader:
 
 
 class UltralyticsYOLODetector:
-    def __init__(self, weights: str | Path, confidence_threshold: float = 0.25) -> None:
-        self.confidence_threshold = confidence_threshold
+    """YOLO prediction with separately specified inference and post-filter thresholds.
+
+    confidence_threshold retains its legacy meaning: filtering returned boxes.
+    The upstream default is explicitly 0.25 to preserve the audited protocol.
+    Changing inference_confidence_threshold defines a different measurement
+    configuration; it must not silently replace archived experiment results.
+    """
+
+    def __init__(
+        self, weights: str | Path, confidence_threshold: float = 0.25,
+        *, inference_confidence_threshold: float = 0.25,
+    ) -> None:
+        for name, value in (("confidence_threshold", confidence_threshold),
+                            ("inference_confidence_threshold", inference_confidence_threshold)):
+            if not math.isfinite(float(value)) or not 0 <= float(value) <= 1:
+                raise ValueError(f"{name} must be finite and in [0, 1]")
+        self.confidence_threshold = float(confidence_threshold)
+        self.inference_confidence_threshold = float(inference_confidence_threshold)
         self.weights = str(weights)
+        self.begin_runtime_audit()
         self.model = self._load_model()
+        self._snapshot_model_identity()
+
+    @staticmethod
+    def _file_sha256(path) -> str | None:
+        path = Path(path)
+        if not path.is_file():
+            return None
+        digest = hashlib.sha256()
+        with path.open("rb") as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+
+    def _snapshot_model_identity(self) -> None:
+        # Called after each load, rather than hashing the weights for every frame.
+        weight_path = Path(getattr(self.model, "ckpt_path", None) or self.weights).resolve()
+        try:
+            version = importlib.metadata.version("ultralytics")
+        except importlib.metadata.PackageNotFoundError:
+            version = None
+        try:
+            predict_path = inspect.getsourcefile(self.model.predict)
+        except (TypeError, OSError):
+            predict_path = None
+        self._model_identity = {
+            "ultralytics_version": version,
+            "weights_path": str(weight_path),
+            "weights_sha256": self._file_sha256(weight_path),
+            "predict_source_path": predict_path,
+            "predict_source_sha256": self._file_sha256(predict_path) if predict_path else None,
+            "adapter_source_sha256": self._file_sha256(__file__),
+        }
+
+    def begin_runtime_audit(self) -> None:
+        """Start a fresh evaluation scope; do not reuse the prior attempt's calls."""
+        self._runtime_variants = []
+        self._successful_predict_calls = 0
+
+    def _record_runtime(self) -> None:
+        predictor = getattr(self.model, "predictor", None)
+        args = getattr(predictor, "args", None)
+        keys = ("conf", "iou", "imgsz", "device", "half", "augment", "max_det",
+                "rect", "agnostic_nms", "classes", "task", "mode", "batch",
+                "save", "dnn", "compile", "nms", "channels_last", "quantize")
+        effective = None if args is None else {
+            key: args.get(key) if isinstance(args, dict) else getattr(args, key, None)
+            for key in keys
+        }
+        # Detach mutable predictor settings; ensure this record is JSON serializable.
+        effective = json.loads(json.dumps(effective, default=str, allow_nan=False))
+        variant = {
+            "requested_inference_confidence_threshold": self.inference_confidence_threshold,
+            "post_filter_confidence_threshold": self.confidence_threshold,
+            "effective_predictor_args": effective,
+            "model_identity": dict(self._model_identity),
+        }
+        self._successful_predict_calls += 1
+        if self._runtime_variants and self._runtime_variants[-1]["settings"] == variant:
+            self._runtime_variants[-1]["predict_calls"] += 1
+        else:
+            self._runtime_variants.append({"settings": variant, "predict_calls": 1})
+        if effective is not None and effective.get("conf") is not None:
+            if float(effective["conf"]) != self.inference_confidence_threshold:
+                raise RuntimeError("YOLO effective inference confidence differs from requested configuration")
+
+    def get_runtime_audit(self) -> Dict[str, Any]:
+        """Snapshot for runner history and standalone reports; survives GPU release.
+
+        Only calls since begin_runtime_audit() are counted. Cached reference
+        detections and metadata-only evaluations do not count as new predictions.
+        """
+        return copy.deepcopy({
+            "schema_version": "driveloop_yolo_runtime.v1",
+            "scope": "successful_predict_calls_since_begin_runtime_audit",
+            "status": "recorded" if self._successful_predict_calls else "not_invoked",
+            "configured_inference_confidence_threshold": self.inference_confidence_threshold,
+            "configured_post_filter_confidence_threshold": self.confidence_threshold,
+            "successful_predict_calls": self._successful_predict_calls,
+            "variants": self._runtime_variants,
+        })
 
     def _load_model(self) -> Any:
         try:
@@ -134,6 +237,7 @@ class UltralyticsYOLODetector:
     def detect(self, frame: Any, frame_index: int) -> List[Detection]:
         if self.model is None:
             self.model = self._load_model()
+            self._snapshot_model_identity()
         source = frame
         temp_path: Path | None = None
         if not isinstance(frame, (str, Path)):
@@ -148,7 +252,10 @@ class UltralyticsYOLODetector:
                 raise RuntimeError("could not materialize frame for YOLO detector") from exc
 
         try:
-            results = self.model.predict(source=source, verbose=False)
+            results = self.model.predict(
+                source=source, verbose=False, conf=self.inference_confidence_threshold,
+            )
+            self._record_runtime()
         finally:
             if temp_path is not None:
                 try:
@@ -369,11 +476,17 @@ class PerceptionVideoEvaluator(BaseEvaluator):
         return Evaluation(score, metrics, Diagnosis(passed, list(dict.fromkeys(reasons)), list(dict.fromkeys(actions))))
 
     def build_report(self, generation: Generation) -> Dict[str, Any]:
+        reset_audit = getattr(self.detector, "begin_runtime_audit", None)
+        if callable(reset_audit):
+            reset_audit()
         evaluation = self.evaluate(generation)
+        audit = getattr(self.detector, "get_runtime_audit", None)
+        runtime = {"detector_runtime": audit()} if callable(audit) else {}
         measured = evaluation.metrics.get("perception_measured") == 1.0
         claim = "not_measured" if not measured else ("measured_passed" if evaluation.diagnosis.passed else "measured_failed")
         return {
             "schema_version": "driveloop_perception_video_eval.v0",
+            **runtime,
             "generation": {"iteration": generation.iteration, "prompt": generation.prompt, "artifacts": dict(generation.artifacts)},
             "evaluation": asdict(evaluation),
             "interpretation": {

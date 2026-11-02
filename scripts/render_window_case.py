@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from scripts.run_driveloop_experiment import main as experiment_main
+from driveloop.acceptance import POLICIES
 from scripts.run_window_admission_probe import (
     resolve_baseline_video,
     source_config_from_baseline_dir,
@@ -57,6 +58,10 @@ def build_experiment_argv(config: Dict[str, Any], baseline_video: Any, args: arg
                  "--perception-confidence", str(args.perception_confidence)]
     if args.use_task_utility:
         argv += ["--use-task-utility"]
+    argv += ["--acceptance-policy", getattr(args, "acceptance_policy", "score_and_diagnosis"),
+             "--perception-acceptance-threshold", str(getattr(args, "perception_acceptance_threshold", 0.3))]
+    if getattr(args, "fixed_budget", False):
+        argv += ["--fixed-budget"]
     return argv
 
 
@@ -74,6 +79,9 @@ def main(argv=None) -> int:
     parser.add_argument("--config-name", default="drivedreamer2_img_cond_mini_local")
     parser.add_argument("--max-iterations", type=int, default=1)
     parser.add_argument("--target-score", type=float, default=0.99)
+    parser.add_argument("--acceptance-policy", choices=POLICIES, default="score_and_diagnosis")
+    parser.add_argument("--perception-acceptance-threshold", type=float, default=0.3)
+    parser.add_argument("--fixed-budget", action="store_true")
     parser.add_argument("--perception-weights", default=None)
     parser.add_argument("--perception-confidence", type=float, default=0.20)
     parser.add_argument("--use-task-utility", action="store_true")

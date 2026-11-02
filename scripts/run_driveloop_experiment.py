@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from driveloop.acceptance import POLICIES
 
 from driveloop.experiment_pipeline import (
     ExperimentPipeline,
@@ -17,6 +18,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-dir", required=True, help="Directory for experiment records")
     parser.add_argument("--max-iterations", type=int, default=3)
     parser.add_argument("--target-score", type=float, default=0.8)
+    parser.add_argument("--acceptance-policy", choices=POLICIES, default="score_and_diagnosis")
+    parser.add_argument("--perception-acceptance-threshold", type=float, default=0.3)
+    parser.add_argument("--fixed-budget", action="store_true", help="Keep evaluating after gate pass; return best accepted candidate")
     parser.add_argument("--backend", choices=["mock", "drivedreamer2"], default="mock")
     parser.add_argument("--project-root", default=".")
     parser.add_argument("--config-name", default="drivedreamer2_img_cond_mini_local")
@@ -52,6 +56,9 @@ def main(argv: list[str] | None = None) -> int:
         config=ExperimentPipelineConfig(
             max_iterations=args.max_iterations,
             target_score=args.target_score,
+            acceptance_policy=args.acceptance_policy,
+            perception_acceptance_threshold=args.perception_acceptance_threshold,
+            stop_on_acceptance=not args.fixed_budget,
             backend_name=args.backend,
             dd2_project_root=args.project_root,
             dd2_config_name=args.config_name,

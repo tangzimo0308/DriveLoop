@@ -169,3 +169,70 @@ def test_source_sample_binding_blocks_partial_identity_token_match(tmp_path: Pat
 
     assert binding["ready"] is False
     assert binding["reason"] == "no_dd2_candidate_contains_requested_source_tokens"
+
+
+def actor_dataset(root, *, present=(False, False, True, True), tokens_available=True):
+    dataset = write_dataset(root)
+    path = dataset / 'labels' / 'data.pkl'
+    with path.open('rb') as handle:
+        records = pickle.load(handle)
+    for i, record in enumerate(records):
+        record['scene_token'] = 'scene_0'
+        record['boxes3d'] = [[0., 1., 20., 2., 2., 4., 0., 0., 0.]]
+        if tokens_available:
+            record['instance_tokens'] = ['target' if present[i] else 'other']
+    with path.open('wb') as handle:
+        pickle.dump(records, handle)
+    return dataset
+
+
+def bind_actor(dataset, **kwargs):
+    return build_source_sample_binding(dataset, scene_token='scene_0', instance_token='target',
+        frame_num=2, hz_factor=1, multiview=False, **kwargs)
+
+
+def test_binding_skips_same_scene_window_without_requested_actor(tmp_path):
+    binding = bind_actor(actor_dataset(tmp_path / 'dataset'))
+    assert binding['ready'] is True
+    assert binding['dd2_batch_skip'] == 1
+    assert binding['instance_coverage']['matched_front_frames'] == 2
+
+
+def test_binding_rejects_only_partial_actor_coverage(tmp_path):
+    binding = bind_actor(actor_dataset(tmp_path / 'dataset', present=(False, True, True, False)))
+    assert binding['ready'] is False
+    assert binding['reason'] == 'no_dd2_candidate_covers_requested_instance'
+
+
+def test_binding_requires_actor_identity_annotations(tmp_path):
+    binding = bind_actor(actor_dataset(tmp_path / 'dataset', tokens_available=False))
+    assert binding['ready'] is False
+
+
+def test_ambiguous_actor_windows_require_sample_identity(tmp_path):
+    dataset = actor_dataset(tmp_path / 'dataset', present=(True, True, True, True))
+    binding = bind_actor(dataset)
+    assert binding['ready'] is False
+    assert binding['matching_candidate_indices'] == [0, 1]
+    assert binding['reason'] == 'ambiguous_source_window_requires_sample_identity'
+    pinned = bind_actor(dataset, sample_token='sample_c')
+    assert pinned['ready'] is True
+    assert pinned['dd2_batch_skip'] == 1
+
+
+def test_missing_identity_file_does_not_fall_back_to_scene(tmp_path):
+    binding = bind_actor(actor_dataset(tmp_path / 'dataset'), identity_summary_path=tmp_path / 'missing.json')
+    assert binding['ready'] is False
+    assert binding['reason'] == 'source_identity_summary_missing_or_empty'
+
+
+def test_rebinding_offset_cannot_escape_pinned_actor_window(tmp_path):
+    binding = bind_actor(actor_dataset(tmp_path / 'dataset'), sample_token='sample_c', candidate_offset=1)
+    assert binding['ready'] is False
+    assert binding['reason'] == 'source_offset_would_violate_identity'
+
+
+def test_source_candidate_name_alone_cannot_select_arbitrary_window(tmp_path):
+    binding = build_source_sample_binding(actor_dataset(tmp_path / 'dataset'),
+        source_candidate_id='candidate1', frame_num=2, hz_factor=1, multiview=False)
+    assert binding['ready'] is False

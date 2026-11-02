@@ -15,6 +15,7 @@ from driveloop.dd2_override import read_override_audit
 from driveloop.ego_injection import apply_trajectory_tangent_heading, cam_box9_to_ego_entry
 from driveloop.schema import DriveLoopRequest, Generation
 from driveloop.source_sample_binding import build_source_sample_binding
+from driveloop.real_track_guard import check_real_track
 
 
 def real_track_dims_scale() -> float:
@@ -452,7 +453,8 @@ class DriveDreamer2Backend(GenerationBackend):
         (true per-view projections), suppressing the synthetic stand-in.
         A synthetic duplicate next to a real target produces overlapping
         conditioning (measured 2026-07-09: min gap 3.7 m, crossing tracks).
-        Selection prefers the binding instance_token, then track continuity.
+        Selection requires the binding instance_token when supplied; otherwise
+        it uses category and track continuity.
         Disable with DRIVELOOP_EGO_REAL_TRACK=0 to force the synthetic path."""
         if os.environ.get("DRIVELOOP_EGO_REAL_TRACK", "1") == "0":
             return [], {"available": False, "reason": "real_track_mode_disabled"}
@@ -502,11 +504,15 @@ class DriveDreamer2Backend(GenerationBackend):
                 missing_steps.append(step)
                 continue
             record_instance_tokens = record.get("instance_tokens")
-            if instance_token and isinstance(record_instance_tokens, (list, tuple)) and len(record_instance_tokens) == len(labels):
-                exact = [(i, b) for i, b in candidates if str(record_instance_tokens[i]) == instance_token]
-                if exact:
-                    candidates = exact
-                    selection_basis = "binding_instance_token"
+            if instance_token:
+                if record_instance_tokens is None or len(record_instance_tokens) != len(labels):
+                    missing_steps.append(step)
+                    continue
+                candidates = [(i, b) for i, b in candidates if str(record_instance_tokens[i]) == instance_token]
+                if not candidates:
+                    missing_steps.append(step)
+                    continue
+                selection_basis = "binding_instance_token"
             if previous_box is not None and len(candidates) > 1:
                 candidates.sort(key=lambda ib: (ib[1][0] - previous_box[0]) ** 2 + (ib[1][2] - previous_box[2]) ** 2)
             else:
@@ -897,6 +903,22 @@ class DriveDreamer2Backend(GenerationBackend):
                     source_sample_binding,
                 )
             if real_track_entries:
+                planned_entries, _ = self._map_per_frame_actor_boxes_to_ego_entries(
+                    per_frame_append_boxes, source_sample_binding,
+                )
+                maneuver = actor_motion_surface_plan.get("maneuver") or per_frame_append_boxes[0].get("maneuver")
+                compatibility = check_real_track(real_track_entries, planned_entries, maneuver)
+                if maneuver in {"cut_in", "lane_change"} and (
+                    len(planned_entries) != len(per_frame_append_boxes)
+                    or real_track_mapping.get("selection_basis") != "binding_instance_token"
+                ):
+                    compatibility.update(compatible=False, reason="unverified_identity_or_incomplete_plan")
+                real_track_mapping["trajectory_compatibility"] = compatibility
+                if not compatibility["compatible"]:
+                    real_track_entries = []
+                    real_track_mapping.update(available=False, reason=compatibility["reason"],
+                                              synthetic_suppressed_count=0)
+            if real_track_entries:
                 per_frame_append_ego_boxes = real_track_entries
                 actor_motion_frame_mapping = real_track_mapping
             else:
@@ -915,6 +937,7 @@ class DriveDreamer2Backend(GenerationBackend):
                     source_sample_binding,
                 )
                 actor_motion_frame_mapping["real_track_fallback_reason"] = real_track_mapping.get("reason")
+                actor_motion_frame_mapping["rejected_real_track_audit"] = real_track_mapping
             # The legacy per-cam clone surface is suppressed when the
             # ego-frame surface is active to avoid double injection.
             per_frame_append_boxes = []
@@ -930,6 +953,16 @@ class DriveDreamer2Backend(GenerationBackend):
 
         scene_description = structural_input_plan.get("scene_description", {})
         scene_value = scene_description.get("value") if isinstance(scene_description, dict) else dd2_prompt
+
+        ground_mode = os.environ.get("DRIVELOOP_EGO_GROUND_ALIGNMENT", "off")
+        if ground_mode not in {"off", "local_vehicle_bottom_v1"}:
+            raise ValueError("unknown DRIVELOOP_EGO_GROUND_ALIGNMENT mode: " + ground_mode)
+        if ground_mode != "off" and per_frame_append_ego_boxes:
+            from driveloop.ground_alignment import align_to_local_vehicle_bottom
+            per_frame_append_ego_boxes, height_audit = align_to_local_vehicle_bottom(
+                per_frame_append_ego_boxes, self._build_source_bound_front_records(source_sample_binding),
+            )
+            actor_motion_frame_mapping["ground_alignment"] = height_audit
 
         return {
             "available": True,

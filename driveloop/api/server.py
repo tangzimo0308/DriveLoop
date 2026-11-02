@@ -49,6 +49,9 @@ class GenerateResponse(BaseModel):
     best_generation: Dict[str, Any]
     best_evaluation: Dict[str, Any]
     history: List[HistoryRecord]
+    returned_generation: Dict[str, Any] = Field(default_factory=dict)
+    returned_evaluation: Dict[str, Any] = Field(default_factory=dict)
+    return_status: str = "unknown"
 
 
 class TranscribeResponse(BaseModel):
@@ -336,11 +339,14 @@ def generate(request: GenerateRequest):
 
     return GenerateResponse(
         scenario_id=scenario_id,
-        accepted=best_evaluation.get("score", 0.0) >= request.target_score,
+        accepted=result.return_status == "accepted",
         best_score=best_evaluation.get("score", 0.0),
         iterations=len(result.history),
         output_dir=str(output_dir),
         best_generation=_to_dict(result.best_generation),
         best_evaluation=best_evaluation,
         history=history,
+        returned_generation=_to_dict(result.returned_generation),
+        returned_evaluation=_to_dict(result.returned_evaluation),
+        return_status=result.return_status,
     )

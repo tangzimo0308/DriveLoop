@@ -1,0 +1,32 @@
+[
+  {
+    "published": "reproducibility/module_ablation_20261027/run_module_ablation.py",
+    "original_path": "outputs/revision_20261027_module_rollout/run_module_ablation.py",
+    "sha256": "634982705ad3912347366ec817f448ff1f451fd6dbe564a6ea480c1052bf79f4"
+  },
+  {
+    "published": "reproducibility/module_ablation_20261027/isolated_backend.py",
+    "original_path": "outputs/revision_20261027_module_rollout/isolated_backend.py",
+    "sha256": "662ff91a79c69ca42b6f9cbffae247e4e76283bec725bcf6c55835401dd55cfe"
+  },
+  {
+    "published": "reproducibility/module_ablation_20261027/isolated_refiner.py",
+    "original_path": "outputs/revision_20261027_module_rollout/isolated_refiner.py",
+    "sha256": "6abffea60e8c0eaa7c368cb282cf782001b8f2d3b7e94fcb4e9f2116665f1e08"
+  },
+  {
+    "published": "reproducibility/module_ablation_20261027/analyze_20261029.py",
+    "original_path": "outputs/revision_20261027_module_rollout/analyze_20261029.py",
+    "sha256": "21a40af4cea61f5ed34172d7ad625660d26d9d0b5e7ace3a0a91c89ab6d07d3f"
+  },
+  {
+    "published": "reproducibility/module_ablation_20261027/check_contract.py",
+    "original_path": "outputs/revision_20261027_module_rollout/check_contract.py",
+    "sha256": "b4629e2dcf3ca6f1b436061d0f5ac47f26e88e041bff316451a796a2eb8ba596"
+  },
+  {
+    "published": "reproducibility/module_ablation_20261027/audit_pilot_20261028.py",
+    "original_path": "outputs/revision_20261027_module_rollout/audit_pilot_20261028.py",
+    "sha256": "5a59e6e4e6b7092bcb50bff5adbdd84c86406c4cddf529773cb7487c1135fdcb"
+  }
+]

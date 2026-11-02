@@ -50,7 +50,8 @@ def build_source_sample_binding(
         "instance_token": instance_token,
         "identity_summary_path": str(identity_path) if identity_path else None,
     }
-    target_sample_tokens = _as_set([sample_token]) | _identity_sample_tokens(identity_path)
+    identity_sample_tokens = _identity_sample_tokens(identity_path)
+    target_sample_tokens = _as_set([sample_token]) | identity_sample_tokens
     target_scene_tokens = _as_set([scene_token])
 
     requested = bool(source_candidate_id or target_sample_tokens or target_scene_tokens or instance_token)
@@ -73,6 +74,13 @@ def build_source_sample_binding(
             "reason": "dd2_labels_data_missing",
         }
 
+    if identity_path is not None and not identity_sample_tokens:
+        return {
+            "schema_version": "driveloop_source_sample_binding.v1",
+            "requested": True, "ready": False, "selector": selector,
+            "reason": "source_identity_summary_missing_or_empty",
+        }
+
     records = load_records(labels_path)
     starts = candidate_camera_starts(
         records,
@@ -82,69 +90,84 @@ def build_source_sample_binding(
         multiview=multiview,
     )
 
+    matches = []
     for candidate_index, camera_starts in enumerate(starts):
         selected_indices = selected_frame_indices(
-            camera_starts,
-            frame_num=frame_num,
-            hz_factor=hz_factor,
+            camera_starts, frame_num=frame_num, hz_factor=hz_factor,
         )
-        selected_records = [records[index] for index in selected_indices if 0 <= index < len(records)]
+        if any(index < 0 or index >= len(records) for index in selected_indices):
+            continue
+        selected_records = [records[index] for index in selected_indices]
         selected_sample_tokens = _as_set(record.get("sample_token") for record in selected_records)
         selected_scene_tokens = _as_set(record.get("scene_token") for record in selected_records)
+        if not (target_sample_tokens or target_scene_tokens or instance_token):
+            continue  # A display candidate ID alone is not a dataset-stable identity.
+        if target_sample_tokens and not target_sample_tokens.issubset(selected_sample_tokens):
+            continue
+        if target_scene_tokens and selected_scene_tokens != target_scene_tokens:
+            continue
+        front_record_index = camera_starts[1] if multiview and len(camera_starts) > 1 else camera_starts[0]
+        front_records = [records[front_record_index + step * hz_factor] for step in range(frame_num)]
+        if instance_token:
+            # An explicitly requested actor must be identified in every selected
+            # front frame. Category matches cannot substitute for actor identity.
+            covered = []
+            for record in front_records:
+                tokens = record.get("instance_tokens")
+                labels = record.get("ori_labels3d", [])
+                boxes = record.get("boxes3d")
+                if tokens is None or boxes is None or len(tokens) != len(labels) or len(tokens) != len(boxes):
+                    covered.append(False)
+                else:
+                    covered.append(str(instance_token) in _as_set(tokens))
+            if not all(covered):
+                continue
+        matches.append({
+            "schema_version": "driveloop_source_sample_binding.v1",
+            "requested": True, "ready": True, "selector": selector,
+            "dataset_dir": str(dataset_dir), "labels_path": str(labels_path),
+            "record_count": len(records), "candidate_start_count": len(starts),
+            "dd2_batch_skip": candidate_index,
+            "rebinding": None,
+            "front_record_index": front_record_index,
+            "front_record": {
+                key: records[front_record_index].get(key)
+                for key in ("sample_token", "scene_token", "cam_type", "frame_idx", "scene_description")
+            },
+            "selected_frame_indices_preview": selected_indices[:24],
+            "matched_sample_tokens": sorted(target_sample_tokens & selected_sample_tokens),
+            "matched_scene_tokens": sorted(target_scene_tokens & selected_scene_tokens),
+            "unique_selected_sample_token_count": len(selected_sample_tokens),
+            "unique_selected_scene_token_count": len(selected_scene_tokens),
+            "instance_coverage": ({"matched_front_frames": frame_num, "required_front_frames": frame_num}
+                                  if instance_token else None),
+            "claim_boundary": {
+                "runtime_sample_selector_verified": True,
+                "source_sample_binding_is_not_gpu_approval": True,
+                "source_sample_binding_is_not_video_semantic_success": True,
+            },
+        })
 
-        matched_sample_tokens = sorted(target_sample_tokens & selected_sample_tokens)
-        matched_scene_tokens = sorted(target_scene_tokens & selected_scene_tokens)
-        sample_tokens_match = bool(target_sample_tokens) and target_sample_tokens.issubset(selected_sample_tokens)
-        scene_tokens_match = bool(target_scene_tokens) and target_scene_tokens.issubset(selected_scene_tokens)
-        token_groups_requested = bool(target_sample_tokens or target_scene_tokens)
-        token_groups_match = (
-            token_groups_requested
-            and (not target_sample_tokens or sample_tokens_match)
-            and (not target_scene_tokens or scene_tokens_match)
-        )
-        if token_groups_match:
-            if candidate_offset:
-                candidate_index = (candidate_index + int(candidate_offset)) % len(starts)
-                camera_starts = starts[candidate_index]
-                selected_indices = selected_frame_indices(
-                    camera_starts, frame_num=frame_num, hz_factor=hz_factor
-                )
-            front_record_index = camera_starts[1] if multiview and len(camera_starts) > 1 else camera_starts[0]
-            front_record = records[front_record_index]
-            return {
-                "schema_version": "driveloop_source_sample_binding.v0",
-                "requested": True,
-                "ready": True,
-                "selector": selector,
-                "dataset_dir": str(dataset_dir),
-                "labels_path": str(labels_path),
-                "record_count": len(records),
-                "candidate_start_count": len(starts),
-                "dd2_batch_skip": candidate_index,
-                "rebinding": (
-                    {"candidate_offset": int(candidate_offset), "token_match_from_offset_zero": True}
-                    if candidate_offset
-                    else None
-                ),
-                "front_record_index": front_record_index,
-                "front_record": {
-                    "sample_token": front_record.get("sample_token"),
-                    "scene_token": front_record.get("scene_token"),
-                    "cam_type": front_record.get("cam_type"),
-                    "frame_idx": front_record.get("frame_idx"),
-                    "scene_description": front_record.get("scene_description"),
-                },
-                "selected_frame_indices_preview": selected_indices[:24],
-                "matched_sample_tokens": matched_sample_tokens,
-                "matched_scene_tokens": matched_scene_tokens,
-                "unique_selected_sample_token_count": len(selected_sample_tokens),
-                "unique_selected_scene_token_count": len(selected_scene_tokens),
-                "claim_boundary": {
-                    "runtime_sample_selector_verified": True,
-                    "source_sample_binding_is_not_gpu_approval": True,
-                    "source_sample_binding_is_not_video_semantic_success": True,
-                },
-            }
+    if matches:
+        failure_reason = None
+        if len(matches) != 1:
+            failure_reason = "ambiguous_source_window_requires_sample_identity"
+        elif candidate_offset:
+            shifted = (matches[0]["dd2_batch_skip"] + int(candidate_offset)) % len(starts)
+            if shifted != matches[0]["dd2_batch_skip"]:
+                failure_reason = "source_offset_would_violate_identity"
+            else:
+                matches[0]["rebinding"] = {"candidate_offset": int(candidate_offset), "effective_noop": True}
+        if failure_reason is None:
+            return matches[0]
+        return {
+            "schema_version": "driveloop_source_sample_binding.v1",
+            "requested": True, "ready": False, "selector": selector,
+            "dataset_dir": str(dataset_dir), "labels_path": str(labels_path),
+            "record_count": len(records), "candidate_start_count": len(starts),
+            "matching_candidate_indices": [match["dd2_batch_skip"] for match in matches],
+            "reason": failure_reason,
+        }
 
     return {
         "schema_version": "driveloop_source_sample_binding.v0",
@@ -157,7 +180,8 @@ def build_source_sample_binding(
         "candidate_start_count": len(starts),
         "target_sample_token_count": len(target_sample_tokens),
         "target_scene_token_count": len(target_scene_tokens),
-        "reason": "no_dd2_candidate_contains_requested_source_tokens",
+        "reason": ("no_dd2_candidate_covers_requested_instance" if instance_token
+                   else "no_dd2_candidate_contains_requested_source_tokens"),
         "claim_boundary": {
             "runtime_sample_selector_verified": False,
             "source_sample_binding_is_not_gpu_approval": True,

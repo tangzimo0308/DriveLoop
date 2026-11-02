@@ -7,16 +7,15 @@ direction probe needs >= 3 frames with a target-class detection in the
 selected view (composite_perception._maneuver_direction_check).
 """
 import argparse, glob, json, os
+import sys
+from pathlib import Path
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from driveloop.acceptance import joint_gate
 
 
 def gate_state(m, tau):
-    sp = float(m.get("S_perc") or 0.0)
-    dr = m.get("maneuver_direction_consistent")
-    if sp < tau:
-        return "LOW_SPERC"
-    if dr is None:
-        return "UNMEASURED"
-    return "PASS" if float(dr) == 1.0 else "DIR_FAIL"
+    return joint_gate(m, tau)
 
 
 def main():

@@ -25,6 +25,8 @@ def write_runtime_dataset(path: Path, sample_tokens=("sample_a", "sample_b")) ->
                 "scene_description": "candidate70 target sequence",
                 "labels3d": [["vehicle", "motorcycle"]],
                 "ori_labels3d": ["vehicle.motorcycle"],
+                "instance_tokens": ["21cdc9f24c614a6197fd044379697197"],
+                "boxes3d": [[0., 1., 20., 0.8, 1.4, 2.2, 0., 0., 0.]],
             }
         )
     with (labels / "data.pkl").open("wb") as handle:

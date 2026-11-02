@@ -1,35 +1,37 @@
 <div align="center">
 
-# DriveLoop: Evaluation-Driven Closed-Loop Driving-Video Generation
+# DriveLoop: Evaluation-Driven Closed-Loop Refinement for Driving Video Generation
 
 </div>
 
-DriveLoop wraps a **frozen** [DriveDreamer-2](https://drivedreamer2.github.io) (DD2) backend in a closed loop of **generation, evaluation, diagnosis, and refinement**. Each attempt is rendered on a real nuScenes source scene and scored by a perception-oriented evaluator (YOLOv8 + BoT-SORT). Failed attempts descend a refinement ladder: strengthen structured conditions and refine the prompt text (Rung 1), inject a synthetic close-range trajectory of the requested category (Rung 2), and reseed (Rung 3). Keep-best selection guarantees the returned video is never worse than the single pass. The backend weights are never updated.
+DriveLoop (**evaluation-driven closed-loop refinement for driving video generation**) wraps a **frozen** [DriveDreamer-2](https://drivedreamer2.github.io) (DD2) backend in a closed loop of **generation, evaluation, diagnosis, and refinement**. Each attempt is rendered on a real nuScenes source scene and scored by a perception-oriented evaluator (with detector/tracker settings specified by each experiment protocol). Failed attempts descend a refinement ladder: strengthen structured conditions and refine the prompt text (Rung 1), inject a synthetic close-range trajectory of the requested category (Rung 2), and reseed (Rung 3). Keep-best selection preserves the maximum ranking score among evaluated candidates. Acceptance is checked separately; a higher-ranked candidate can fail the maneuver gate. An unaccepted fallback is not a successful video. The backend weights are never updated.
 
 ![DriveLoop framework](assets/framework.png)
 
-## Example: a request every baseline fails
+## Historical rainy-truck example
 
-The user asks for *"a truck cuts in from my left on a rainy street."* The open-loop pass renders a convincing rainy street but no detectable truck (top row). The synthetic rung makes the truck appear and be detected, confidence 0.32 to 0.52, but it moves against the request, so the joint gate rejects it (middle row). The reseeded attempt is detected at 0.81 and cuts in from the left as requested, and this is the clip the loop accepts (bottom row). Best-of-4 resampling and text-only refinement both stay at score 0 on this request.
+The original paper example requests a truck cutting in from the left on a rainy street. The figure illustrates the progression from an open-loop output to refinement attempts and the detector scores recorded for those attempts. Detector confidence and a proxy direction check alone do not establish that the requested maneuver or target identity is correct.
 
-![Rainy truck cut-in: open-loop vs synthetic rung vs accepted attempt](assets/rain_case.png)
+![Historical rainy-truck example](assets/rain_case.png)
 
-The same request re-run live on the current server (animated, YOLOv8 detections drawn as reported by the evaluator):
+The animation below is a later demonstration, not the original A10 evidence or a replacement for its measurements:
 
-![Open-loop vs DriveLoop on the rainy truck request](assets/rain_case_demo.gif)
+![Rainy-truck demonstration](assets/rain_case_demo.gif)
 
-A note on reproducibility: runs are deterministic under the fixed seed bank on fixed hardware, and every paper number has a matching record in `experiments/` from the original NVIDIA A10 runs. The animated demo above was regenerated on an RTX 5090, where the same seeds sample different videos, so its scores differ from the paper table while the loop behavior (single pass fails, refinement recovers the truck) is unchanged.
+## Historical main-paper results
 
-## Key results
-
-- Mean perception score on seven backend arms: **0.208 → 0.533** (+156% over single-pass DD2), 32/35 requests improve, 0 regress.
+- Mean perception score on seven backend arms: **0.208 → 0.533** (+156% over single-pass DD2), 32/35 configurations improve and 3 tie. These are seven backend arms with five requests each, not 35 independent source scenes.
 - At the same 4-attempt budget, DriveLoop beats best-of-4 resampling by **73%** (0.533 vs 0.308).
-- Realism improves alongside accuracy: FID 166.4 → 156.7, FVD 2103 → 1752 against real nuScenes clips.
-- One NVIDIA A10 (24 GB), fp16, about 3 minutes per attempt, at most about 12 minutes per request at T=4.
+- Reported distributional metrics: FID 166.4 → 156.7, FVD 2103 → 1752 against real nuScenes clips. These aggregate metrics do not certify maneuver correctness.
+- One NVIDIA A10 (24 GB), fp16, about 3 minutes per attempt, roughly 12 minutes of generation for four attempts; this is not a strict end-to-end latency bound.
 
-All strategies share the render budget T. The gap opens at T=3, where the ladder reaches the synthetic-trajectory rung:
+The archived budget curves summarize the original study:
 
 ![Render budget curves](assets/budget_curves.png)
+
+These values are retained from the original experiment summaries. The separate pool study evaluated six cases; its launcher catalogs ten possible bindings. Complete original videos and attempt-level artifacts for the combined 41 historical cases have not been recovered, so this release does not claim complete independent reproduction of those results. Fixed seeds alone do not guarantee identical samples across hardware and software versions.
+
+Later frozen evaluations, module ablations, input audits, and capture tools are supplementary material. They do not replace the historical main-paper experiments. See [release scope and supplementary reproduction dependencies](reproducibility/README.md).
 
 ## Repository layout
 
@@ -37,11 +39,12 @@ All strategies share the render budget T. The gap opens at T=3, where the ladder
 | --- | --- |
 | `driveloop/` | Core package: grounding, conditioning, source selection, DD2 backend adapter, evaluators, refiner, runner |
 | `scripts/` | Experiment entry points (see below) |
-| `tests/` | Unit and integration tests (`pytest tests/`) |
-| `experiments/` | Dated experiment records for every reported result |
+| `tests/` | Unit and integration tests (`python -m pytest tests/`) |
+| `experiments/` | Historical notes and acceptance-protocol documentation; not a complete raw evidence archive |
 | `results/` | Paper data: per-attempt scores (`driveloop_plotdata.json`), metric curves (`measurement_curves.json`) |
+| `reproducibility/` | Supplementary source snapshots and their provenance |
 | `assets/` | README figures |
-| `dreamer-datasets/`, `dreamer-models/`, `dreamer-train/` | Upstream DD2 runtime (frozen, unmodified weights) |
+| `dreamer-datasets/`, `dreamer-models/`, `dreamer-train/` | DD2 runtime with input/capture/audit integration patches; released weights remain frozen |
 | `DOCS/` | DD2 environment setup: `install.md`, `preparation.md`, `trainval.md` |
 
 ## Setup
@@ -57,7 +60,7 @@ Single request through the full closed loop:
 python scripts/run_driveloop_drivedreamer2.py
 ```
 
-Reproducing the paper experiments (T=4, seed bank 0):
+Historical experiment entry points (require the original data, paths, and protocol; running current code is not an exact replay of missing historical artifacts):
 
 ```bash
 python scripts/run_seven_arms_v10f.py      # backend-arm study (7 arms x 5 requests)
@@ -70,17 +73,33 @@ python scripts/quality_gate.py             # joint acceptance gate readout
 python scripts/summarize_closed_loop.py    # aggregate tables
 ```
 
-All runs are deterministic under the fixed seed bank. Every number reported in the paper has a matching record in `experiments/`.
+Do not mix historical launchers, revised acceptance policies, and supplementary freezes when comparing results. Inspect the launcher configuration and output directory before starting a GPU job.
+
+## Acceptance protocol revision (2026-10-05)
+
+The generic runner now requires both score and diagnosis to pass. For the
+paper's perception/direction gate, use `python -m scripts.render_window_case`
+with the existing source/case arguments and
+`--acceptance-policy joint_perception_direction --perception-acceptance-threshold 0.3`.
+Add `--fixed-budget` for a full-budget experiment instead of early stopping.
+Use a new output directory for each protocol and do not overwrite archived results.
+
+`best_*` records the unconstrained score maximum. `returned_*` identifies the
+actual output; `return_status` must be checked before treating it as accepted.
+A missing direction measurement is not an automatic pass. The explicitly named
+`legacy_score_or_diagnosis` mode is for historical replay only.
+See [the protocol and theorem scope](experiments/2026-10-05_m1_acceptance_protocol.md).
+The historical launchers and A10 figures above are not new joint-gate results.
 
 ## Tests
 
 ```bash
-pytest tests/
+python -m pytest tests/test_joint_acceptance.py tests/test_runner_task_utility.py tests/test_frozen_eval.py
 ```
 
 ## Acknowledgements
 
-The generation backend is [DriveDreamer-2](https://github.com/f1yfisher/DriveDreamer2) (AAAI 2025). We use the officially released weights and runtime without modification. Source scenes come from the [nuScenes](https://www.nuscenes.org) dataset.
+The generation backend is [DriveDreamer-2](https://github.com/f1yfisher/DriveDreamer2) (AAAI 2025). We use the officially released weights without training updates. Runtime integration changes support conditioning, source binding, capture, and auditing. Source scenes come from the [nuScenes](https://www.nuscenes.org) dataset.
 
 ## License
 

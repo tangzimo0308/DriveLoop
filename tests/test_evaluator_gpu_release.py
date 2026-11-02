@@ -14,11 +14,14 @@ from driveloop.schema import Evaluation, Generation
 def test_yolo_detector_release_gpu_drops_model_and_detect_reloads():
     detector = object.__new__(UltralyticsYOLODetector)
     detector.confidence_threshold = 0.25
+    detector.inference_confidence_threshold = 0.25
+    detector.begin_runtime_audit()
     detector.weights = "fake.pt"
     reloads = []
 
     class _FakeModel:
-        def predict(self, source, verbose):
+        def predict(self, source, verbose, conf):
+            assert conf == 0.25
             return []
 
     detector._load_model = lambda: reloads.append(1) or _FakeModel()

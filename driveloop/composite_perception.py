@@ -72,6 +72,8 @@ class CompositePerceptionVideoEvaluator(PerceptionVideoEvaluator):
         return str(path) if path else None
 
     def evaluate(self, generation: Generation) -> Evaluation:
+        # Reset on every call, including early returns, to prevent stale tracks.
+        self._view_detection_frames = {}
         if self._detections_from_metadata(generation.metadata) is not None:
             return super().evaluate(generation)
         video_path = generation.artifacts.get("video")
@@ -148,6 +150,7 @@ class CompositePerceptionVideoEvaluator(PerceptionVideoEvaluator):
                 },
             )
             evaluation = super().evaluate(view_generation)
+            self._view_detection_frames[view_index] = payload_frames
             view_scores[view_index] = evaluation.score
             view_evaluations[view_index] = evaluation
             if not hasattr(self, "_view_centers"):

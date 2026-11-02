@@ -25,6 +25,7 @@ from driveloop.schema import (
 from driveloop.source_selector import BaseSourceSelector, NoOpSourceSelector
 from driveloop.control_visibility import control_visibility_score
 from driveloop.utility import UtilityWeights, intent_consistency, task_utility
+from driveloop.acceptance import POLICIES, acceptance_state, finite_number
 
 
 class DriveLoopRunner:
@@ -49,6 +50,13 @@ class DriveLoopRunner:
         self.condition_adapter = condition_adapter or DriveDreamer2ConditionAdapter()
         self.source_selector = source_selector or NoOpSourceSelector()
         self.config = config or DriveLoopConfig()
+        if self.config.acceptance_policy not in POLICIES:
+            raise ValueError("unknown acceptance_policy: %r" % self.config.acceptance_policy)
+        if self.config.max_iterations < 1:
+            raise ValueError("max_iterations must be positive")
+        for threshold in (self.config.target_score, self.config.perception_acceptance_threshold):
+            if finite_number(threshold) is None or not 0 <= threshold <= 1:
+                raise ValueError("acceptance thresholds must be finite and in [0, 1]")
         self.history_logger = HistoryLogger(self.config.output_dir)
 
     def run(self, request: DriveLoopRequest) -> DriveLoopResult:
@@ -58,6 +66,7 @@ class DriveLoopRunner:
         attempt_history: list[DriveLoopAttempt] = []
         best_generation: Optional[Generation] = None
         best_evaluation: Optional[Evaluation] = None
+        best_accepted = None
 
         for iteration in range(self.config.max_iterations):
             scene_spec = self.grounder.ground(current_request)
@@ -139,12 +148,16 @@ class DriveLoopRunner:
                 },
             )
 
+            reset_audit = getattr(getattr(self.evaluator, "detector", None), "begin_runtime_audit", None)
+            if callable(reset_audit):
+                reset_audit()
             evaluation = self.evaluator.evaluate(generation)
             generation = replace(
                 generation,
                 metadata={
                     **generation.metadata,
                     **self._perception_support_provenance(generation),
+                    **self._perception_runtime_provenance(),
                 },
             )
             release_gpu = getattr(getattr(self.evaluator, "detector", None), "release_gpu", None)
@@ -201,13 +214,13 @@ class DriveLoopRunner:
                 best_generation = generation
                 best_evaluation = evaluation
 
-            source_selection_blocks_acceptance = (
-                source_selection_dict.get("requested") is True
-                and source_selection_dict.get("ready") is not True
-            )
+            status = self._attempt_status(generation, evaluation, source_selection_dict)
+            if status == "accepted" and (
+                best_accepted is None or evaluation.score > best_accepted[1].score
+            ):
+                best_accepted = (generation, evaluation)
             should_stop = (
-                not source_selection_blocks_acceptance
-                and (evaluation.score >= self.config.target_score or evaluation.diagnosis.passed)
+                status == "accepted" and self.config.stop_on_acceptance
             ) or self._perception_unmeasurable(evaluation)
             refinement: Optional[Refinement] = None
             if not should_stop:
@@ -237,7 +250,7 @@ class DriveLoopRunner:
                 generation=generation,
                 evaluation=evaluation,
                 refinement=refinement,
-                status=self._attempt_status(generation, evaluation, source_selection_dict),
+                status=status,
                 source_selection=source_selection_dict,
                 claim_boundary=self._attempt_claim_boundary(generation, evaluation, source_selection_dict),
             )
@@ -256,12 +269,24 @@ class DriveLoopRunner:
 
         assert best_generation is not None
         assert best_evaluation is not None
+        returned_generation, returned_evaluation = best_accepted or (best_generation, best_evaluation)
+        return_status = "accepted" if best_accepted else "budget_exhausted"
+        if best_accepted is None:
+            returned_attempt = next(a for a in attempt_history if a.iteration == returned_generation.iteration)
+            if returned_attempt.status in ("requires_review", "perception_unmeasurable",
+                                            "source_selection_unavailable", "source_binding_unavailable"):
+                return_status = returned_attempt.status
         return DriveLoopResult(
             request=request,
             best_generation=best_generation,
             best_evaluation=best_evaluation,
             history=history,
             attempt_history=attempt_history,
+            returned_generation=returned_generation,
+            returned_evaluation=returned_evaluation,
+            return_status=return_status,
+            selection_metric="J" if self.config.use_task_utility else "evaluation_score",
+            acceptance_policy=self.config.acceptance_policy,
         )
 
     def _with_source_selection_diagnosis(self, evaluation: Evaluation, source_selection: dict) -> Evaluation:
@@ -302,6 +327,17 @@ class DriveLoopRunner:
                 suggested_actions=list(dict.fromkeys(actions)),
             ),
         )
+
+    def _perception_runtime_provenance(self) -> dict:
+        audit = getattr(getattr(self.evaluator, "detector", None), "get_runtime_audit", None)
+        if not callable(audit):
+            return {}
+        return {"perception_detector_runtime": {
+            **audit(),
+            "evaluator_class": type(self.evaluator).__name__,
+            "evaluator_post_filter_confidence_threshold": getattr(self.evaluator, "confidence_threshold", None),
+            "tracker_iou_threshold": getattr(self.evaluator, "tracker_iou_threshold", None),
+        }}
 
     def _perception_support_provenance(self, generation: Generation) -> dict:
         """Archive which no-injection support video the evaluator resolved for
@@ -403,8 +439,11 @@ class DriveLoopRunner:
             return "source_binding_unavailable"
         if self._perception_unmeasurable(evaluation):
             return "perception_unmeasurable"
-        if evaluation.score >= self.config.target_score or evaluation.diagnosis.passed:
+        gate = acceptance_state(evaluation, self.config)
+        if gate == "PASS":
             return "accepted"
+        if gate == "UNMEASURED":
+            return "requires_review"
         return "needs_refinement"
 
     def _attempt_claim_boundary(self, generation: Generation, evaluation: Evaluation, source_selection: dict) -> dict:
@@ -419,6 +458,11 @@ class DriveLoopRunner:
             "source_binding_is_not_gpu_approval": source_claim.get("source_sample_binding_is_not_gpu_approval"),
             "source_selection_is_not_gpu_approval": selection_claim.get("source_selection_is_not_gpu_approval"),
             "evaluation_passed": evaluation.diagnosis.passed,
+            "acceptance_policy": self.config.acceptance_policy,
+            "acceptance_state": acceptance_state(evaluation, self.config),
+            "selection_metric": "J" if self.config.use_task_utility else "evaluation_score",
+            "perception_acceptance_threshold": self.config.perception_acceptance_threshold,
+            "stop_on_acceptance": self.config.stop_on_acceptance,
         }
 
     def _with_conditioned_prompt(

@@ -1,0 +1,14 @@
+#!/home/lesliton/miniconda3/envs/drivedreamer/bin/python
+"""Launch the unchanged DD2 entrypoint with process-local observation hooks."""
+import os,runpy,sys
+from pathlib import Path
+from dd2_capture_hooks import install
+root=Path('/home/lesliton/projects/DriveLoop')
+target=(Path.cwd()/sys.argv[1]).resolve()
+assert target==root/'dreamer-train/projects/launch.py'
+assert Path.cwd()==root
+assert os.environ.get('DRIVELOOP_CAPTURE_DIR')
+install(os.environ['DRIVELOOP_CAPTURE_DIR'])
+sys.argv=sys.argv[1:]
+sys.path[0]=str(target.parent)
+runpy.run_path(str(target),run_name='__main__')

@@ -272,6 +272,9 @@ class DriveDreamer2_Tester(Tester):
                 else:
                     prompt_embed = batch_dict.get('prompt_embeds', None)
 
+                from driveloop.image_condition_probe import validate_scale
+                image_condition_scale = validate_scale(os.environ.get("DRIVELOOP_DD2_IMAGE_CONDITION_SCALE", "1"))
+                image_condition_audit_path = os.environ.get("DRIVELOOP_DD2_IMAGE_CONDITION_AUDIT_PATH")
                 audit_path = os.environ.get("DRIVELOOP_DD2_AUDIT_PATH")
                 if audit_path:
                     def tensor_summary(value):
@@ -362,6 +365,7 @@ class DriveDreamer2_Tester(Tester):
                         "selected_batch_index": sampler_selected_batch_index if sampler_selected_batch_index is not None else batch_i,
                         "prompt_embed": tensor_summary(prompt_embed),
                         "img_cond": tensor_summary(input_dict.get("img_cond")),
+                        "image_condition_scale": image_condition_scale,
                         "grounding_downsampler_input": tensor_summary(input_dict.get("grounding_downsampler_input")),
                         "box_downsampler_input": tensor_summary(input_dict.get("box_downsampler_input")),
                         "motion_metadata": metadata_summary(motion_metadata),
@@ -391,6 +395,8 @@ class DriveDreamer2_Tester(Tester):
                             num_frames=self.frame_num,
                             decode_chunk_size=1,
                             first_frame=True,
+                            image_condition_scale=image_condition_scale,
+                            image_condition_audit_path=image_condition_audit_path,
                         )
                         
                         images=images.frames[0]
@@ -414,6 +420,8 @@ class DriveDreamer2_Tester(Tester):
                                 num_frames=self.frame_num,
                                 decode_chunk_size=1,
                                 first_frame=True,
+                            image_condition_scale=image_condition_scale,
+                            image_condition_audit_path=image_condition_audit_path,
                             )
                     images=images.frames[0]
                     if save_dir is not None:

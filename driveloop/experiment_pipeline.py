@@ -73,6 +73,9 @@ class ExperimentPipelineConfig:
     # and record every attempt. Runs that need to reproduce the archived v9
     # numbers must set perception_protocol="v9" explicitly.
     perception_protocol: str = "v10b"
+    acceptance_policy: str = "score_and_diagnosis"
+    perception_acceptance_threshold: float = 0.3
+    stop_on_acceptance: bool = True
 
 
 def perception_evaluator_class(protocol: Any):
@@ -220,6 +223,9 @@ class ExperimentPipeline:
                 output_dir=case_dir / "history",
                 use_task_utility=self.config.use_task_utility,
                 utility_weights=self.config.utility_weights,
+                acceptance_policy=self.config.acceptance_policy,
+                perception_acceptance_threshold=self.config.perception_acceptance_threshold,
+                stop_on_acceptance=self.config.stop_on_acceptance,
             ),
         )
         result = runner.run(
@@ -232,13 +238,16 @@ class ExperimentPipeline:
             for attempt in attempt_records:
                 f.write(json.dumps(attempt, ensure_ascii=False, default=_json_default) + "\n")
 
-        accepted = any(attempt.get("status") == "accepted" for attempt in attempt_records)
-        backend_metadata = result.best_generation.metadata
+        accepted = result.return_status == "accepted"
+        returned_generation = result.returned_generation
+        returned_evaluation = result.returned_evaluation
+        backend_metadata = returned_generation.metadata
         dd2_audit_only = backend_metadata.get("dd2_audit_only") is True
         semantic_claim_allowed = (
             self.config.backend_name != "mock"
             and not dd2_audit_only
-            and bool(result.best_evaluation.diagnosis.passed)
+            and accepted
+            and bool(returned_evaluation.diagnosis.passed)
         )
         record = {
             "schema_version": "driveloop_experiment_case_result.v0",
@@ -247,10 +256,16 @@ class ExperimentPipeline:
             "status": "accepted" if accepted else "failed",
             "best_score": result.best_evaluation.score,
             "best_metrics": dict(result.best_evaluation.metrics),
+            "returned_score": returned_evaluation.score,
+            "returned_metrics": dict(returned_evaluation.metrics),
+            "returned_iteration": returned_generation.iteration,
+            "return_status": result.return_status,
+            "selection_metric": result.selection_metric,
+            "acceptance_policy": result.acceptance_policy,
             "attempt_count": len(attempt_records),
             "attempt_statuses": [attempt.get("status") for attempt in attempt_records],
-            "diagnosis_reasons": list(result.best_evaluation.diagnosis.reasons),
-            "suggested_actions": list(result.best_evaluation.diagnosis.suggested_actions),
+            "diagnosis_reasons": list(returned_evaluation.diagnosis.reasons),
+            "suggested_actions": list(returned_evaluation.diagnosis.suggested_actions),
             "claim_boundary": {
                 "experiment_case_record_is_not_video_semantic_success": True,
                 "mock_backend_is_not_dd2_gpu_evidence": self.config.backend_name == "mock",

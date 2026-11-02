@@ -304,7 +304,9 @@ class DriveDreamer2Pipeline(DiffusionPipeline,DriveDreamer2_LoaderMixin):
         video_condition: bool= False,
         clip_latents: bool = False,
         return_dict: bool = True,
-        first_frame: bool=False
+        first_frame: bool=False,
+        image_condition_scale: float = 1.0,
+        image_condition_audit_path: Optional[str] = None,
     ):
         r"""
         The call function to the pipeline for generation.
@@ -450,7 +452,11 @@ class DriveDreamer2Pipeline(DiffusionPipeline,DriveDreamer2_LoaderMixin):
         condition_latents = None
         mask_condition = None
 
+        from driveloop.image_condition_probe import validate_scale, apply_image_condition_scale, write_probe_audit
+        image_condition_scale = validate_scale(image_condition_scale)
         img_cond = input_dict.get('img_cond',None)
+        if img_cond is None and (image_condition_scale != 1.0 or image_condition_audit_path):
+            raise ValueError('image condition probe requires img_cond mode')
         if img_cond is not None:
             img_cond=img_cond.half()
             # img_cond = torch.tensor(
@@ -462,6 +468,10 @@ class DriveDreamer2Pipeline(DiffusionPipeline,DriveDreamer2_LoaderMixin):
             condition_latent = self.vae.encode(img_cond).latent_dist.sample()
             condition_latent = condition_latent * self.vae.config.scaling_factor
             condition_latent = condition_latent.to(self.dtype)
+            unscaled_condition = condition_latent
+            condition_latent = apply_image_condition_scale(condition_latent, image_condition_scale)
+            if image_condition_audit_path:
+                write_probe_audit(image_condition_audit_path, image_condition_scale, latents, unscaled_condition, condition_latent)
                 
             condition_latent = condition_latent[None]
             condition_latents= torch.zeros_like(latents)

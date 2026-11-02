@@ -15,6 +15,9 @@ class DriveLoopConfig:
     utility_weights: Optional[Dict[str, float]] = None
     intent_epsilon: float = 0.05
     use_postprocess: bool = False
+    acceptance_policy: str = "score_and_diagnosis"
+    perception_acceptance_threshold: float = 0.3
+    stop_on_acceptance: bool = True
 
 
 @dataclass(frozen=True)
@@ -102,3 +105,9 @@ class DriveLoopResult:
     best_evaluation: Evaluation
     history: List[Tuple[Generation, Evaluation]]
     attempt_history: List[DriveLoopAttempt] = field(default_factory=list)
+    # best_* is the unconstrained rank maximum; returned_* obeys acceptance.
+    returned_generation: Optional[Generation] = None
+    returned_evaluation: Optional[Evaluation] = None
+    return_status: str = "unknown"
+    selection_metric: str = "evaluation_score"
+    acceptance_policy: str = "unknown"

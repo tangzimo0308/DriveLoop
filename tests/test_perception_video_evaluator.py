@@ -143,7 +143,8 @@ def test_ultralytics_detector_materializes_frame_to_temp_image_path(monkeypatch)
         def __init__(self, weights):
             self.weights = weights
 
-        def predict(self, source, verbose=False):
+        def predict(self, source, verbose=False, conf=None):
+            assert conf == 0.25
             predicted_sources.append(source)
             assert Path(source).exists()
             return [SimpleNamespace(names={}, boxes=[])]

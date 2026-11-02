@@ -49,7 +49,7 @@ def test_utility_weights_override(tmp_path):
     assert abs(metrics["J"] - metrics["S_perc"]) < 1e-9
 
 
-def test_utility_acceptance_can_stop_loop(tmp_path):
+def test_high_utility_does_not_override_failed_diagnosis(tmp_path):
     config = DriveLoopConfig(
         max_iterations=3, output_dir=tmp_path, target_score=0.1, use_task_utility=True
     )
@@ -59,7 +59,9 @@ def test_utility_acceptance_can_stop_loop(tmp_path):
         config=config,
     )
     result = runner.run(REQUEST)
-    assert len(result.attempt_history) == 1
+    assert len(result.attempt_history) == 3
+    assert result.return_status == "budget_exhausted"
+    assert all(a.status != "accepted" for a in result.attempt_history)
 
 
 class _UnmeasurableEvaluator(BaseEvaluator):

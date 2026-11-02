@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>DriveLoop 匿名片段复核</title>
+<style>body{font:18px system-ui;max-width:1000px;margin:30px auto;padding:16px}img,video{max-width:48%;vertical-align:top}label{display:block;margin:18px 0}button,select,input,textarea{font:inherit}textarea{width:95%}#note{color:#555}</style>
+<h1>匿名片段复核（A）</h1><p id="note">载入匿名 manifest.json。页面不包含模型答案。无法判断时请选择“不确定”。</p>
+<input type="file" id="load" accept=".json"><button id="export">保存标注 JSON</button>
+<p id="progress"></p><h2 id="id"></h2><p id="prompt"></p>
+<img id="reference" alt="真实源场景参考"><video id="clip" controls loop muted playsinline></video>
+<div id="form"></div><textarea id="notes" placeholder="歧义或判断依据（可选）"></textarea>
+<p><button id="prev">上一条</button> <button id="next">下一条</button></p>
+<script>
+let items=[],answers={},index=0,manifestId='';
+const choices={category:['是','否','不确定','不可见'],identity:['一致','不一致','不确定'],maneuver:['是','否','不确定'],visibility:['清晰','部分遮挡','严重遮挡或不可见','不确定'],continuity:['连续','明显跳变或身份切换','不确定']};
+const labels={category:'是否为请求类别',identity:'目标身份与真实参考',maneuver:'片段内是否可见从左向自车方向切入',visibility:'可见性',continuity:'时间连续性'};
+for(const [k,opts] of Object.entries(choices)){const label=document.createElement('label');label.textContent=labels[k]+'：';const s=document.createElement('select');s.id=k;for(const x of ['',...opts]){const o=document.createElement('option');o.value=x;o.textContent=x||'请选择';s.append(o)}s.onchange=save;label.append(s);document.querySelector('#form').append(label)}
+function save(){if(!items.length)return;const a={};for(const k in choices)a[k]=document.getElementById(k).value;a.notes=document.querySelector('#notes').value;answers[items[index].id]=a;localStorage.setItem('driveloop:'+manifestId,JSON.stringify(answers))}
+function show(){if(!items.length)return;const r=items[index],a=answers[r.id]||{};document.querySelector('#id').textContent=r.id;document.querySelector('#prompt').textContent=r.prompt;document.querySelector('#reference').src=r.reference;document.querySelector('#clip').src=r.clip;for(const k in choices)document.getElementById(k).value=a[k]||'';document.querySelector('#notes').value=a.notes||'';document.querySelector('#progress').textContent=(index+1)+' / '+items.length;}
+document.querySelector('#notes').oninput=save;
+document.querySelector('#prev').onclick=()=>{save();index=Math.max(0,index-1);show()};document.querySelector('#next').onclick=()=>{save();index=Math.min(items.length-1,index+1);show()};
+document.querySelector('#load').onchange=async e=>{try{const m=JSON.parse(await e.target.files[0].text());if(!m.manifest_id||!Array.isArray(m.items)||m.items.some(r=>!r.id||!r.prompt||!r.clip||!r.reference||Object.keys(r).some(k=>!['id','prompt','clip','reference'].includes(k))))throw Error('匿名数据格式不符');if(new Set(m.items.map(r=>r.id)).size!==m.items.length)throw Error('ID 重复');items=m.items;manifestId=m.manifest_id;answers=JSON.parse(localStorage.getItem('driveloop:'+manifestId)||'{}');index=0;show()}catch(e){alert(e.message)}};
+document.querySelector('#export').onclick=()=>{save();const rows=items.map(r=>({id:r.id,...answers[r.id]}));const complete=rows.filter(r=>Object.keys(choices).every(k=>r[k])).length;const data={schema:'driveloop_frozen_eval_A_v1',manifest_id:manifestId,annotator:'A',independent_reviewer:false,complete_count:complete,total:items.length,rows};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='frozen_eval_annotations_A_'+complete+'of'+items.length+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+</script></html>

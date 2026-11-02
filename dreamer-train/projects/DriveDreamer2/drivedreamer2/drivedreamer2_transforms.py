@@ -120,10 +120,11 @@ class DriveDreamer2_Transform:
             color_face = 200
         for i, corner in enumerate(corners):
             idx = idxs[i]
-            w_1 = abs(corner[0,0]-corner[2,0])
-            h_1 = abs(corner[0,1]-corner[2,1])
-            w_2 = abs(corner[4,0]-corner[6,0])
-            h_2 = abs(corner[4,1]-corner[6,1])
+            # Projected off-screen corners can overflow int32 area arithmetic.
+            w_1 = abs(int(corner[0,0])-int(corner[2,0]))
+            h_1 = abs(int(corner[0,1])-int(corner[2,1]))
+            w_2 = abs(int(corner[4,0])-int(corner[6,0]))
+            h_2 = abs(int(corner[4,1])-int(corner[6,1]))
             if w_1*h_1<w_2*h_2:
                 for i_st,i_end in self.box_skeleton:
                     if pt_out_img(corner[i_st]) and pt_out_img(corner[i_end]):

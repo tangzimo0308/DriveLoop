@@ -541,3 +541,23 @@ def test_ego_entry_centered_in_front_camera_survives_fov_cull(monkeypatch):
     assert updated["boxes3d"].shape == (1, 9)
     applied = [a for a in audit["applied"] if a.get("mode") == "per_frame_append_ego"]
     assert applied and applied[0]["accepted_count"] == 1
+
+
+def test_real_track_never_labels_another_actor_with_requested_identity(monkeypatch):
+    backend = _real_track_backend(monkeypatch, [
+        {'relative_step': 0, 'record_index': 30, 'record': _front_record(100, instance='other-moto')}
+    ])
+    entries, mapping = backend._map_real_track_to_ego_entries(
+        [_plan_box(0)], {'ready': True, 'selector': {'instance_token': 'inst-moto'}})
+    assert entries == []
+    assert mapping['missing_relative_steps'] == [0]
+
+
+def test_real_track_cannot_verify_requested_actor_without_tokens(monkeypatch):
+    record = _front_record(100)
+    del record['instance_tokens']
+    backend = _real_track_backend(monkeypatch, [{'relative_step': 0, 'record_index': 30, 'record': record}])
+    entries, mapping = backend._map_real_track_to_ego_entries(
+        [_plan_box(0)], {'ready': True, 'selector': {'instance_token': 'inst-moto'}})
+    assert entries == []
+    assert mapping['available'] is False
